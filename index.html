@@ -2,11 +2,18 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Menonaktifkan zoom dari viewport mobile -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+  />
+
   <meta
     name="description"
     content="Portofolio Muhamad Farid Indrawan — Fresh Graduate Teknik Informatika Universitas Suryakancana"
   />
+
   <title>Muhamad Farid Indrawan | Portfolio</title>
 
   <style>
@@ -35,6 +42,7 @@
 
     html {
       scroll-behavior: smooth;
+      touch-action: pan-y;
     }
 
     body {
@@ -47,6 +55,7 @@
       font-family: Inter, Arial, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
+      touch-action: pan-y;
     }
 
     body::before {
@@ -90,7 +99,7 @@
       width: 100%;
       height: 82px;
       border-bottom: 1px solid rgba(86, 139, 255, 0.13);
-      background: rgba(5, 11, 28, 0.93);
+      background: rgba(5, 11, 28, 0.94);
       backdrop-filter: blur(16px);
     }
 
@@ -159,25 +168,6 @@
       border-radius: 50%;
       background: var(--cyan);
       box-shadow: 0 0 12px var(--cyan);
-    }
-
-    .theme-button {
-      display: grid;
-      width: 40px;
-      height: 40px;
-      place-items: center;
-      color: var(--text);
-      cursor: pointer;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background: rgba(30, 54, 101, 0.55);
-      transition: 0.2s;
-    }
-
-    .theme-button:hover {
-      border-color: var(--blue-light);
-      color: var(--blue-light);
-      transform: rotate(15deg);
     }
 
     /* ================= HERO ================= */
@@ -340,7 +330,7 @@
       background: rgba(39, 112, 255, 0.10);
     }
 
-    /* ================= FOTO & CAHAYA TANPA BATAS KOTAK ================= */
+    /* ================= FOTO DAN CAHAYA ================= */
 
     .portrait-area {
       position: relative;
@@ -354,10 +344,6 @@
       isolation: isolate;
     }
 
-    /*
-      Cahaya utama dibuat sangat besar, bulat, dan transparan hingga ujung.
-      Karena ukurannya lebih besar dari area foto, tepi glow tidak terlihat kotak.
-    */
     .portrait-area::before {
       content: "";
       position: absolute;
@@ -382,10 +368,6 @@
       pointer-events: none;
     }
 
-    /*
-      Cahaya horizontal di sekitar bahu.
-      Lebar besar dan transparansi gradual menghilangkan efek kotak.
-    */
     .portrait-area::after {
       content: "";
       position: absolute;
@@ -408,10 +390,6 @@
       pointer-events: none;
     }
 
-    /*
-      Kabut di bawah tubuh.
-      Menghilangkan batas bawah dan menyatukan foto dengan background.
-    */
     .portrait-mist {
       position: absolute;
       z-index: -3;
@@ -433,10 +411,6 @@
       pointer-events: none;
     }
 
-    /*
-      Shadow bawah dibuat dengan radial gradient,
-      bukan kotak hitam biasa.
-    */
     .portrait-shadow {
       position: absolute;
       z-index: -2;
@@ -468,7 +442,6 @@
       object-fit: contain;
       object-position: center bottom;
 
-      /* Nonaktifkan seleksi dan drag gambar */
       pointer-events: none;
       user-select: none;
       -webkit-user-drag: none;
@@ -481,11 +454,6 @@
         drop-shadow(0 0 28px rgba(47, 127, 255, 0.26))
         drop-shadow(0 0 55px rgba(36, 97, 255, 0.13));
 
-      /*
-        Mask:
-        - Sisi kiri dan kanan bahu memudar.
-        - Bagian bawah badan menyatu dengan kabut dan shadow.
-      */
       -webkit-mask-image:
         radial-gradient(
           ellipse 86% 92% at 50% 41%,
@@ -527,9 +495,6 @@
       mask-composite: intersect;
     }
 
-    /*
-      Lapisan transparan untuk memblokir klik langsung pada elemen gambar.
-    */
     .portrait-protection {
       position: absolute;
       z-index: 2;
@@ -1115,6 +1080,8 @@
       text-align: center;
     }
 
+    /* ================= ANIMASI ================= */
+
     .reveal {
       opacity: 0;
       transform: translateY(22px);
@@ -1396,15 +1363,6 @@
           <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-
-        <button
-          class="theme-button"
-          id="themeButton"
-          type="button"
-          aria-label="Ganti tema"
-        >
-          ◐
-        </button>
       </nav>
     </div>
   </header>
@@ -1899,44 +1857,13 @@
   </footer>
 
   <script>
-    const themeButton = document.getElementById("themeButton");
     const navLinks = document.querySelectorAll(".nav-links a");
     const sections = document.querySelectorAll("main section[id]");
     const revealItems = document.querySelectorAll(".reveal");
     const portrait = document.querySelector(".portrait");
     const portraitProtection = document.querySelector(".portrait-protection");
 
-    themeButton.addEventListener("click", () => {
-      const lightMode = document.body.classList.toggle("light-mode");
-
-      document.documentElement.style.setProperty(
-        "--bg",
-        lightMode ? "#edf4ff" : "#050b1c"
-      );
-
-      document.documentElement.style.setProperty(
-        "--bg-soft",
-        lightMode ? "#dceaff" : "#08132b"
-      );
-
-      document.documentElement.style.setProperty(
-        "--card",
-        lightMode ? "rgba(255,255,255,.84)" : "rgba(15,31,67,.78)"
-      );
-
-      document.documentElement.style.setProperty(
-        "--text",
-        lightMode ? "#101b36" : "#f5f7ff"
-      );
-
-      document.documentElement.style.setProperty(
-        "--muted",
-        lightMode ? "#53627f" : "#a4b1ce"
-      );
-
-      themeButton.textContent = lightMode ? "☼" : "◐";
-    });
-
+    /* Menandai menu navbar aktif saat scroll */
     window.addEventListener("scroll", () => {
       let currentSection = "home";
 
@@ -1954,6 +1881,7 @@
       });
     });
 
+    /* Animasi section saat muncul */
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -1969,11 +1897,12 @@
 
     revealItems.forEach((item) => observer.observe(item));
 
-    /* Mencegah drag dan klik kanan pada area foto */
+    /* Mencegah drag gambar */
     portrait.addEventListener("dragstart", (event) => {
       event.preventDefault();
     });
 
+    /* Mencegah klik kanan pada gambar */
     portrait.addEventListener("contextmenu", (event) => {
       event.preventDefault();
     });
@@ -1985,6 +1914,77 @@
     portraitProtection.addEventListener("dragstart", (event) => {
       event.preventDefault();
     });
+
+    /*
+      Mencegah zoom Ctrl + scroll mouse.
+      Scroll biasa tanpa Ctrl tetap berjalan normal.
+    */
+    window.addEventListener(
+      "wheel",
+      (event) => {
+        if (event.ctrlKey) {
+          event.preventDefault();
+        }
+      },
+      {
+        passive: false
+      }
+    );
+
+    /*
+      Mencegah shortcut zoom:
+      Ctrl + Plus
+      Ctrl + Minus
+      Ctrl + 0
+      Cmd + Plus/Minus/0 pada Mac
+    */
+    window.addEventListener("keydown", (event) => {
+      const isZoomShortcut =
+        (event.ctrlKey || event.metaKey) &&
+        (
+          event.key === "+" ||
+          event.key === "-" ||
+          event.key === "=" ||
+          event.key === "0"
+        );
+
+      if (isZoomShortcut) {
+        event.preventDefault();
+      }
+    });
+
+    /*
+      Mencegah gesture pinch zoom pada perangkat touch.
+    */
+    document.addEventListener(
+      "gesturestart",
+      (event) => {
+        event.preventDefault();
+      },
+      {
+        passive: false
+      }
+    );
+
+    document.addEventListener(
+      "gesturechange",
+      (event) => {
+        event.preventDefault();
+      },
+      {
+        passive: false
+      }
+    );
+
+    document.addEventListener(
+      "gestureend",
+      (event) => {
+        event.preventDefault();
+      },
+      {
+        passive: false
+      }
+    );
   </script>
 </body>
 </html>
