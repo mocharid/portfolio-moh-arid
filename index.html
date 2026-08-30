@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portofolio Muhamad Farid Indrawan — Fresh Graduate Teknik Informatika Universitas Suryakancana"
+  />
+  <title>Muhamad Farid Indrawan | Portfolio</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap");
+
+    :root {
+      --bg: #050b1c;
+      --bg-soft: #08132b;
+      --card: rgba(15, 31, 67, 0.78);
+      --line: rgba(93, 141, 240, 0.20);
+      --line-light: rgba(101, 173, 255, 0.48);
+      --text: #f5f7ff;
+      --muted: #a4b1ce;
+      --blue: #2675ff;
+      --blue-light: #65adff;
+      --cyan: #64ddff;
+      --green: #6be8a4;
+      --shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 84% 12%, rgba(31, 104, 255, 0.20), transparent 26%),
+        radial-gradient(circle at 8% 80%, rgba(81, 59, 255, 0.08), transparent 28%),
+        var(--bg);
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(72, 122, 238, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(72, 122, 238, 0.035) 1px, transparent 1px);
+      background-size: 58px 58px;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: -280px;
+      right: -220px;
+      z-index: -2;
+      width: 620px;
+      height: 620px;
+      border-radius: 50%;
+      background: rgba(28, 103, 255, 0.18);
+      filter: blur(120px);
+      pointer-events: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 44px));
+      margin: auto;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      width: 100%;
+      height: 82px;
+      border-bottom: 1px solid rgba(86, 139, 255, 0.13);
+      background: rgba(5, 11, 28, 0.93);
+      backdrop-filter: blur(16px);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 100%;
+      color: var(--text);
+      font: 700 1.05rem / 1 Poppins, sans-serif;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(101, 173, 255, 0.40);
+      border-radius: 9px;
+      color: var(--cyan);
+      font: 800 0.78rem / 1 monospace;
+      background: rgba(39, 112, 255, 0.12);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      height: 100%;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      color: #dce5fb;
+      font-size: 0.83rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--blue-light);
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    .theme-button {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      color: var(--text);
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(30, 54, 101, 0.55);
+      transition: 0.2s;
+    }
+
+    .theme-button:hover {
+      border-color: var(--blue-light);
+      color: var(--blue-light);
+      transform: rotate(15deg);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      padding-top: 82px;
+    }
+
+    .hero-inner {
+      width: 100%;
+      padding: 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(400px, 470px);
+      align-items: center;
+      gap: 56px;
+      width: 100%;
+      min-height: calc(100vh - 82px);
+      padding: 36px 0 28px;
+    }
+
+    .hero-copy {
+      min-width: 0;
+      padding-left: 12px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border: 1px solid rgba(107, 232, 164, 0.28);
+      border-radius: 100px;
+      color: #c9f8dc;
+      font-size: 0.73rem;
+      font-weight: 600;
+      background: rgba(58, 169, 104, 0.10);
+    }
+
+    .availability::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+    }
+
+    .intro {
+      margin-bottom: 12px;
+      color: var(--blue-light);
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      max-width: 700px;
+      margin-bottom: 16px;
+      font: 800 clamp(2.85rem, 5.4vw, 4.85rem) / 1.03 Poppins, sans-serif;
+      letter-spacing: -0.055em;
+    }
+
+    .name-gradient {
+      color: transparent;
+      background: linear-gradient(105deg, #ffffff 20%, #c7deff 60%, #6edcff);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .role {
+      margin-bottom: 18px;
+      color: var(--blue-light);
+      font-size: clamp(1.03rem, 1.8vw, 1.30rem);
+      font-weight: 700;
+    }
+
+    .hero-description {
+      max-width: 555px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 28px 0 17px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 19px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, #1764f4, #3f9bff);
+      box-shadow: 0 12px 28px rgba(28, 107, 255, 0.30);
+    }
+
+    .button-primary:hover {
+      box-shadow: 0 16px 35px rgba(28, 107, 255, 0.44);
+    }
+
+    .button-outline {
+      border: 1px solid rgba(178, 205, 255, 0.45);
+      color: #ffffff;
+      background: rgba(20, 32, 68, 0.34);
+    }
+
+    .button-outline:hover {
+      border-color: var(--blue-light);
+      color: var(--blue-light);
+    }
+
+    .hero-note {
+      color: var(--muted);
+      font-size: 0.80rem;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+    .socials a {
+      padding: 7px 10px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      color: #dce8ff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .socials a:hover {
+      border-color: rgba(101, 173, 255, 0.35);
+      color: var(--cyan);
+      background: rgba(39, 112, 255, 0.10);
+    }
+
+    /* ================= FOTO & CAHAYA TANPA BATAS KOTAK ================= */
+
+    .portrait-area {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+      height: 560px;
+      padding: 0 54px;
+      overflow: visible;
+      isolation: isolate;
+    }
+
+    /*
+      Cahaya utama dibuat sangat besar, bulat, dan transparan hingga ujung.
+      Karena ukurannya lebih besar dari area foto, tepi glow tidak terlihat kotak.
+    */
+    .portrait-area::before {
+      content: "";
+      position: absolute;
+      z-index: -5;
+      top: 50%;
+      left: 50%;
+      width: 760px;
+      height: 760px;
+      transform: translate(-50%, -44%);
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 50% 42%,
+          rgba(91, 175, 255, 0.34) 0%,
+          rgba(50, 122, 255, 0.22) 20%,
+          rgba(28, 75, 196, 0.13) 38%,
+          rgba(12, 40, 112, 0.06) 55%,
+          transparent 76%
+        );
+      filter: blur(30px);
+      opacity: 0.95;
+      pointer-events: none;
+    }
+
+    /*
+      Cahaya horizontal di sekitar bahu.
+      Lebar besar dan transparansi gradual menghilangkan efek kotak.
+    */
+    .portrait-area::after {
+      content: "";
+      position: absolute;
+      z-index: -4;
+      bottom: 35px;
+      left: 50%;
+      width: 700px;
+      height: 390px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          ellipse at 50% 52%,
+          rgba(44, 117, 255, 0.20) 0%,
+          rgba(24, 72, 191, 0.12) 30%,
+          rgba(12, 42, 119, 0.05) 53%,
+          transparent 78%
+        );
+      filter: blur(45px);
+      pointer-events: none;
+    }
+
+    /*
+      Kabut di bawah tubuh.
+      Menghilangkan batas bawah dan menyatukan foto dengan background.
+    */
+    .portrait-mist {
+      position: absolute;
+      z-index: -3;
+      bottom: -85px;
+      left: 50%;
+      width: 680px;
+      height: 250px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(29, 103, 255, 0.27) 0%,
+          rgba(17, 63, 177, 0.14) 35%,
+          rgba(9, 30, 90, 0.05) 58%,
+          transparent 82%
+        );
+      filter: blur(38px);
+      pointer-events: none;
+    }
+
+    /*
+      Shadow bawah dibuat dengan radial gradient,
+      bukan kotak hitam biasa.
+    */
+    .portrait-shadow {
+      position: absolute;
+      z-index: -2;
+      bottom: 3px;
+      left: 50%;
+      width: 470px;
+      height: 95px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0.58) 0%,
+          rgba(0, 0, 0, 0.30) 43%,
+          transparent 75%
+        );
+      filter: blur(24px);
+      pointer-events: none;
+    }
+
+    .portrait {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 345px;
+      height: 468px;
+      max-width: 100%;
+      margin-bottom: 14px;
+      object-fit: contain;
+      object-position: center bottom;
+
+      /* Nonaktifkan seleksi dan drag gambar */
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+
+      filter:
+        drop-shadow(0 25px 26px rgba(0, 0, 0, 0.42))
+        drop-shadow(0 0 28px rgba(47, 127, 255, 0.26))
+        drop-shadow(0 0 55px rgba(36, 97, 255, 0.13));
+
+      /*
+        Mask:
+        - Sisi kiri dan kanan bahu memudar.
+        - Bagian bawah badan menyatu dengan kabut dan shadow.
+      */
+      -webkit-mask-image:
+        radial-gradient(
+          ellipse 86% 92% at 50% 41%,
+          #000 48%,
+          rgba(0, 0, 0, 0.97) 60%,
+          rgba(0, 0, 0, 0.78) 73%,
+          rgba(0, 0, 0, 0.36) 88%,
+          transparent 100%
+        ),
+        linear-gradient(
+          to bottom,
+          #000 0%,
+          #000 74%,
+          rgba(0, 0, 0, 0.92) 85%,
+          rgba(0, 0, 0, 0.48) 95%,
+          transparent 100%
+        );
+
+      -webkit-mask-composite: source-in;
+
+      mask-image:
+        radial-gradient(
+          ellipse 86% 92% at 50% 41%,
+          #000 48%,
+          rgba(0, 0, 0, 0.97) 60%,
+          rgba(0, 0, 0, 0.78) 73%,
+          rgba(0, 0, 0, 0.36) 88%,
+          transparent 100%
+        ),
+        linear-gradient(
+          to bottom,
+          #000 0%,
+          #000 74%,
+          rgba(0, 0, 0, 0.92) 85%,
+          rgba(0, 0, 0, 0.48) 95%,
+          transparent 100%
+        );
+
+      mask-composite: intersect;
+    }
+
+    /*
+      Lapisan transparan untuk memblokir klik langsung pada elemen gambar.
+    */
+    .portrait-protection {
+      position: absolute;
+      z-index: 2;
+      bottom: 14px;
+      left: 50%;
+      width: 345px;
+      height: 468px;
+      transform: translateX(-50%);
+      background: transparent;
+      cursor: default;
+    }
+
+    .floating-card {
+      position: absolute;
+      z-index: 5;
+      min-width: 132px;
+      padding: 12px 15px;
+      border: 1px solid rgba(104, 169, 255, 0.40);
+      border-radius: 11px;
+      background: linear-gradient(
+        135deg,
+        rgba(40, 83, 174, 0.92),
+        rgba(22, 43, 99, 0.90)
+      );
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      animation: floating 4.5s ease-in-out infinite;
+    }
+
+    .floating-card strong {
+      display: block;
+      color: #ffffff;
+      font: 700 1.16rem / 1.1 Poppins, sans-serif;
+    }
+
+    .floating-card span {
+      display: block;
+      margin-top: 5px;
+      color: #c4d5f1;
+      font-size: 0.65rem;
+      white-space: nowrap;
+    }
+
+    .card-projects {
+      top: 98px;
+      right: 8px;
+    }
+
+    .card-status {
+      right: 8px;
+      bottom: 75px;
+      animation-delay: -2s;
+    }
+
+    @keyframes floating {
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* ================= SECTION UMUM ================= */
+
+    section {
+      padding: 105px 0;
+    }
+
+    .section-label {
+      margin-bottom: 10px;
+      color: var(--blue-light);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      content: "// ";
+      color: var(--cyan);
+    }
+
+    .section-title {
+      margin-bottom: 18px;
+      font: 800 clamp(2rem, 4vw, 2.9rem) / 1.18 Poppins, sans-serif;
+      letter-spacing: -0.045em;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 58px;
+      height: 4px;
+      margin-top: 15px;
+      border-radius: 5px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .section-description {
+      max-width: 680px;
+      margin-bottom: 38px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .about-text p + p {
+      margin-top: 18px;
+    }
+
+    .about-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .fact,
+    .skill-card,
+    .project-card,
+    .timeline-card,
+    .education-card,
+    .certificate-card {
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--card);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .fact {
+      padding: 20px;
+      transition: 0.25s;
+    }
+
+    .fact:hover {
+      border-color: var(--line-light);
+      transform: translateY(-4px);
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--cyan);
+      font: 700 1.13rem / 1.3 Poppins, sans-serif;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: 0.77rem;
+    }
+
+    /* ================= SKILLS ================= */
+
+    #skills,
+    #experience {
+      border-top: 1px solid rgba(86, 139, 255, 0.09);
+      border-bottom: 1px solid rgba(86, 139, 255, 0.09);
+      background: rgba(8, 19, 43, 0.42);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      position: relative;
+      min-height: 182px;
+      padding: 22px;
+      overflow: hidden;
+      transition: 0.25s;
+    }
+
+    .skill-card::before {
+      content: "";
+      position: absolute;
+      top: -55px;
+      right: -50px;
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      background: rgba(54, 128, 255, 0.12);
+      filter: blur(20px);
+    }
+
+    .skill-card:hover {
+      border-color: var(--line-light);
+      box-shadow: var(--shadow);
+      transform: translateY(-6px);
+    }
+
+    .skill-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      height: 34px;
+      margin-bottom: 14px;
+      padding: 0 8px;
+      border: 1px solid rgba(100, 187, 255, 0.32);
+      border-radius: 8px;
+      color: var(--cyan);
+      font: 700 0.79rem / 1 monospace;
+      background: rgba(42, 116, 255, 0.10);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 7px;
+      font-size: 0.98rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: 0.25s;
+    }
+
+    .project-card:hover {
+      border-color: var(--line-light);
+      box-shadow: var(--shadow);
+      transform: translateY(-7px);
+    }
+
+    .project-image {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 165px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      color: var(--cyan);
+      font: 700 2.25rem / 1 monospace;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(71, 155, 255, 0.38), transparent 35%),
+        linear-gradient(135deg, #112d5c, #111939);
+    }
+
+    .project-image::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(122, 183, 255, 0.20);
+      border-radius: 10px;
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      z-index: 1;
+      padding: 5px 8px;
+      border: 1px solid rgba(100, 211, 255, 0.30);
+      border-radius: 100px;
+      color: #c9efff;
+      font-size: 0.60rem;
+      font-weight: 700;
+      background: rgba(15, 117, 187, 0.22);
+    }
+
+    .project-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 22px;
+    }
+
+    .project-body h3 {
+      margin-bottom: 10px;
+      font: 700 1.04rem / 1.35 Poppins, sans-serif;
+    }
+
+    .project-body p {
+      flex: 1;
+      color: var(--muted);
+      font-size: 0.81rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 18px 0;
+    }
+
+    .tag {
+      padding: 5px 8px;
+      border: 1px solid rgba(78, 150, 255, 0.25);
+      border-radius: 6px;
+      color: #b9d8ff;
+      font-size: 0.65rem;
+      font-weight: 600;
+      background: rgba(38, 100, 220, 0.12);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 14px;
+    }
+
+    .project-links a {
+      color: var(--cyan);
+      font-size: 0.77rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .project-links a:hover {
+      color: #ffffff;
+    }
+
+    /* ================= EXPERIENCE ================= */
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 18px;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--blue),
+        var(--blue-light),
+        transparent
+      );
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 62px;
+      margin-bottom: 25px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 23px;
+      left: 8px;
+      width: 21px;
+      height: 21px;
+      border: 5px solid var(--bg-soft);
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow:
+        0 0 0 2px rgba(100, 221, 255, 0.42),
+        0 0 20px rgba(100, 221, 255, 0.34);
+    }
+
+    .timeline-card {
+      padding: 23px 25px;
+      transition: 0.25s;
+    }
+
+    .timeline-card:hover {
+      border-color: var(--line-light);
+      transform: translateX(5px);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      margin-bottom: 7px;
+      color: var(--cyan);
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .timeline-card h3 {
+      margin-bottom: 3px;
+      font: 700 1.06rem / 1.35 Poppins, sans-serif;
+    }
+
+    .timeline-card h4 {
+      margin-bottom: 10px;
+      color: var(--blue-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    /* ================= EDUCATION ================= */
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .education-card {
+      position: relative;
+      padding: 26px;
+      overflow: hidden;
+      transition: 0.25s;
+    }
+
+    .education-card::after {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 135px;
+      height: 135px;
+      border-radius: 50%;
+      background: rgba(77, 113, 255, 0.14);
+      filter: blur(20px);
+    }
+
+    .education-card:hover {
+      border-color: var(--line-light);
+      transform: translateY(-5px);
+    }
+
+    .education-year {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--cyan);
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .education-card h3 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 6px;
+      font: 700 1.08rem / 1.35 Poppins, sans-serif;
+    }
+
+    .education-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .education-card p + p {
+      margin-top: 7px;
+    }
+
+    /* ================= CERTIFICATE ================= */
+
+    .certificate-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .certificate-card {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 18px;
+      transition: 0.25s;
+    }
+
+    .certificate-card:hover {
+      border-color: var(--line-light);
+      transform: translateY(-4px);
+    }
+
+    .certificate-icon {
+      display: grid;
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(113, 172, 255, 0.30);
+      border-radius: 10px;
+      color: var(--cyan);
+      background: rgba(48, 104, 240, 0.12);
+    }
+
+    .certificate-card h3 {
+      font-size: 0.88rem;
+    }
+
+    .certificate-card p {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-box {
+      position: relative;
+      padding: 72px 26px;
+      overflow: hidden;
+      text-align: center;
+      border: 1px solid rgba(101, 173, 255, 0.32);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 50% -15%, rgba(58, 140, 255, 0.37), transparent 45%),
+        linear-gradient(135deg, rgba(23, 55, 126, 0.74), rgba(10, 20, 50, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box::before {
+      content: "</>";
+      position: absolute;
+      right: 4%;
+      bottom: -25px;
+      color: rgba(100, 177, 255, 0.08);
+      font: 800 9rem / 1 monospace;
+    }
+
+    .contact-box .section-label {
+      justify-content: center;
+    }
+
+    .contact-box .section-title {
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      max-width: 610px;
+      margin: 0 auto 27px;
+      color: #bed0ec;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 20px;
+    }
+
+    .contact-info a {
+      padding: 8px 11px;
+      border: 1px solid rgba(145, 190, 255, 0.30);
+      border-radius: 7px;
+      color: #e1ecff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid rgba(86, 139, 255, 0.10);
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1100px) {
+      .hero-inner {
+        padding: 0 14px;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(350px, 420px);
+        gap: 28px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 0.75rem;
+      }
+
+      .portrait-area {
+        padding: 0 32px;
+      }
+
+      .portrait {
+        width: 320px;
+        height: 435px;
+      }
+
+      .portrait-protection {
+        width: 320px;
+        height: 435px;
+      }
+
+      .card-projects,
+      .card-status {
+        right: 0;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-inner {
+        padding: 0;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        padding-top: 52px;
+      }
+
+      .hero-copy {
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin: auto;
+      }
+
+      .hero-buttons,
+      .socials {
+        justify-content: center;
+      }
+
+      .portrait-area {
+        order: -1;
+        height: 500px;
+        padding: 0 20px;
+      }
+
+      .portrait {
+        width: 335px;
+        height: 455px;
+        margin-bottom: 8px;
+      }
+
+      .portrait-protection {
+        bottom: 8px;
+        width: 335px;
+        height: 455px;
+      }
+
+      .portrait-area::before {
+        width: 580px;
+        height: 580px;
+      }
+
+      .portrait-area::after {
+        width: 540px;
+        height: 300px;
+      }
+
+      .portrait-mist {
+        width: 520px;
+        height: 190px;
+      }
+
+      .portrait-shadow {
+        width: 360px;
+        height: 70px;
+      }
+
+      .card-projects {
+        top: 58px;
+        right: calc(50% - 220px);
+      }
+
+      .card-status {
+        right: calc(50% - 215px);
+        bottom: 56px;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .certificate-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 30px, 1160px);
+      }
+
+      header,
+      nav {
+        height: 70px;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .hero-grid {
+        min-height: calc(100vh - 70px);
+        padding-top: 25px;
+      }
+
+      section {
+        padding: 78px 0;
+      }
+
+      h1 {
+        font-size: 2.75rem;
+      }
+
+      .role {
+        font-size: 0.98rem;
+      }
+
+      .portrait-area {
+        height: 415px;
+        padding: 0 16px;
+      }
+
+      .portrait {
+        width: 285px;
+        height: 388px;
+        margin-bottom: 4px;
+      }
+
+      .portrait-protection {
+        bottom: 4px;
+        width: 285px;
+        height: 388px;
+      }
+
+      .portrait-area::before {
+        width: 440px;
+        height: 440px;
+      }
+
+      .portrait-area::after {
+        width: 400px;
+        height: 230px;
+      }
+
+      .portrait-mist {
+        width: 380px;
+        height: 150px;
+      }
+
+      .portrait-shadow {
+        width: 275px;
+        height: 55px;
+      }
+
+      .floating-card {
+        min-width: auto;
+        padding: 10px 11px;
+      }
+
+      .floating-card strong {
+        font-size: 1rem;
+      }
+
+      .floating-card span {
+        font-size: 0.60rem;
+      }
+
+      .card-projects {
+        top: 40px;
+        right: 0;
+      }
+
+      .card-status {
+        right: 0;
+        bottom: 33px;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .education-grid,
+      .certificate-list {
+        grid-template-columns: 1fr;
+      }
+
+      .about-facts {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .timeline-item {
+        padding-left: 48px;
+      }
+
+      .timeline::before {
+        left: 12px;
+      }
+
+      .timeline-dot {
+        left: 3px;
+      }
+
+      .timeline-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#home">
+          <span class="brand-icon">&lt;/&gt;</span>
+          Moh. Arid
+        </a>
+
+        <ul class="nav-links">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button
+          class="theme-button"
+          id="themeButton"
+          type="button"
+          aria-label="Ganti tema"
+        >
+          ◐
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="availability">Available for opportunities</div>
+
+              <p class="intro">Hi, I'm</p>
+
+              <h1>
+                <span class="name-gradient">Muhamad</span><br />
+                Farid Indrawan
+              </h1>
+
+              <p class="role">Fresh Graduate — Teknik Informatika</p>
+
+              <p class="hero-description">
+                Fresh graduate Teknik Informatika Universitas Suryakancana yang
+                berfokus pada pengembangan aplikasi web, sistem informasi,
+                pengolahan data, dan solusi digital yang mudah digunakan.
+              </p>
+
+              <div class="hero-buttons">
+                <a class="button button-primary" href="#projects">
+                  View My Work →
+                </a>
+
+                <a
+                  class="button button-outline"
+                  href="assets/cv-muhamad-farid-indrawan.pdf"
+                  download
+                >
+                  ⇩ Download CV
+                </a>
+              </div>
+
+              <p class="hero-note">
+                Siap bekerja dan terbuka untuk peluang baru.
+              </p>
+
+              <div class="socials">
+                <a
+                  href="https://github.com/mocharid"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  GitHub ↗
+                </a>
+
+                <a href="mailto:ariddd.edu@gmail.com">
+                  Email ↗
+                </a>
+
+                <a
+                  href="https://wa.me/62895406725790"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  WhatsApp ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="portrait-area">
+              <div class="portrait-mist"></div>
+              <div class="portrait-shadow"></div>
+
+              <div class="floating-card card-projects">
+                <strong>2</strong>
+                <span>Featured Projects</span>
+              </div>
+
+              <div class="floating-card card-status">
+                <strong>Ready</strong>
+                <span>For New Opportunities</span>
+              </div>
+
+              <img
+                class="portrait"
+                src="assets/Pas_Photo-2.jpg"
+                alt="Foto profil Muhamad Farid Indrawan"
+                draggable="false"
+              />
+
+              <div
+                class="portrait-protection"
+                aria-hidden="true"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container reveal">
+        <p class="section-label">About me</p>
+        <h2 class="section-title">Tentang Saya</h2>
+
+        <p class="section-description">
+          Fresh graduate dengan minat di bidang pengembangan aplikasi web,
+          sistem informasi, basis data, dan pengolahan data.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Saya adalah fresh graduate Teknik Informatika Universitas
+              Suryakancana dengan IPK 3,51/4,00 dan predikat Dengan Pujian.
+              Saya memiliki ketertarikan untuk membangun aplikasi berbasis web
+              yang rapi, mudah digunakan, dan sesuai kebutuhan pengguna.
+            </p>
+
+            <p>
+              Saya terbiasa menggunakan PHP, HTML, CSS, JavaScript, dan MySQL.
+              Saya memiliki pengalaman kerja praktik dalam pengembangan aplikasi
+              Bank Mini Sekolah, serta mengembangkan skripsi tentang implementasi
+              data warehouse untuk analisis persebaran dapur MBG dan rekomendasi
+              prioritas pembangunan SPPG di Kabupaten Cianjur.
+            </p>
+          </div>
+
+          <div class="about-facts">
+            <div class="fact">
+              <strong>IPK 3,51</strong>
+              <span>Predikat Dengan Pujian</span>
+            </div>
+
+            <div class="fact">
+              <strong>Web</strong>
+              <span>Application Development</span>
+            </div>
+
+            <div class="fact">
+              <strong>Data</strong>
+              <span>Warehouse & OLAP</span>
+            </div>
+
+            <div class="fact">
+              <strong>Ready</strong>
+              <span>Siap Bekerja</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container reveal">
+        <p class="section-label">Technical & soft skills</p>
+        <h2 class="section-title">Keahlian</h2>
+
+        <p class="section-description">
+          Kemampuan teknis dan nonteknis untuk mendukung pengembangan sistem
+          serta penyelesaian masalah secara terstruktur.
+        </p>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="skill-icon">PHP</div>
+            <h3>PHP Development</h3>
+            <p>Mengembangkan fitur dan logika aplikasi web menggunakan PHP.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">&lt;/&gt;</div>
+            <h3>HTML & CSS</h3>
+            <p>Membangun struktur halaman dan antarmuka web responsif.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">JS</div>
+            <h3>JavaScript</h3>
+            <p>Membuat interaksi, validasi, dan fungsi halaman web.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">SQL</div>
+            <h3>MySQL Database</h3>
+            <p>Mengelola basis data dan memahami query SQL.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">DW</div>
+            <h3>Data Warehouse</h3>
+            <p>Memahami ETL, tabel fakta, dimensi, dan analisis OLAP.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">BUG</div>
+            <h3>Debugging</h3>
+            <p>Menganalisis dan memperbaiki masalah pada fitur aplikasi.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">TEAM</div>
+            <h3>Kerja Sama Tim</h3>
+            <p>Berkomunikasi dan bekerja secara kolaboratif dengan tim.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">PS</div>
+            <h3>Problem Solving</h3>
+            <p>Menyusun solusi dari kebutuhan dan kendala sistem.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container reveal">
+        <p class="section-label">Selected work</p>
+        <h2 class="section-title">Project & Skripsi</h2>
+
+        <p class="section-description">
+          Beberapa proyek yang menunjukkan pengalaman saya dalam web development
+          dan pengolahan data.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-image">
+              <span class="project-badge">KERJA PRAKTIK</span>
+              K
+            </div>
+
+            <div class="project-body">
+              <h3>KASDIG — Aplikasi Bank Mini Sekolah</h3>
+
+              <p>
+                Aplikasi web untuk mendukung pengelolaan Bank Mini SMK Plus
+                Ashabulyamin Cianjur, meliputi data siswa, transaksi tabungan,
+                pencatatan, dan laporan.
+              </p>
+
+              <div class="tags">
+                <span class="tag">PHP</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">MySQL</span>
+              </div>
+
+              <div class="project-links">
+                <a
+                  href="https://bankminiashabulyamin.web.id/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Live Project ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <span class="project-badge">SKRIPSI / 2026</span>
+              DW
+            </div>
+
+            <div class="project-body">
+              <h3>Data Warehouse Analisis Persebaran Dapur MBG</h3>
+
+              <p>
+                Implementasi data warehouse untuk menganalisis persebaran dapur
+                MBG dan mendukung rekomendasi prioritas pembangunan SPPG di
+                Kabupaten Cianjur melalui integrasi data, ETL, model dimensional,
+                dan OLAP.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Skripsi</span>
+                <span class="tag">ETL</span>
+                <span class="tag">OLAP</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Python</span>
+              </div>
+
+              <div class="project-links">
+                <a href="#contact">Academic Project ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <span class="project-badge">PERSONAL PROJECT</span>
+              &lt;/&gt;
+            </div>
+
+            <div class="project-body">
+              <h3>Personal Developer Portfolio</h3>
+
+              <p>
+                Website portofolio personal dengan tema dark developer untuk
+                menampilkan profil, keahlian, pendidikan, pengalaman, dan karya.
+              </p>
+
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+
+              <div class="project-links">
+                <a href="#home">View Project ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container reveal">
+        <p class="section-label">Experience</p>
+        <h2 class="section-title">Pengalaman yang Relevan</h2>
+
+        <p class="section-description">
+          Pengalaman kerja praktik dan profesional yang membantu membangun
+          kemampuan teknis, administrasi, dan kerja terstruktur.
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+
+            <article class="timeline-card">
+              <span class="timeline-date">2023 — 2024</span>
+              <h3>Kerja Praktik — Pengembangan Aplikasi Bank Mini</h3>
+              <h4>SMK Plus Ashabulyamin Cianjur</h4>
+
+              <p>
+                Berkontribusi dalam pengembangan aplikasi Bank Mini Sekolah untuk
+                pengelolaan data siswa, transaksi tabungan, dan laporan.
+                Mengerjakan struktur halaman, fitur aplikasi, pengujian,
+                debugging, serta pengolahan data.
+              </p>
+
+              <div class="tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Testing</span>
+                <span class="tag">Debugging</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+
+            <article class="timeline-card">
+              <span class="timeline-date">2022</span>
+              <h3>Staf Kantor Kepala DPRD</h3>
+              <h4>DPRD Kabupaten Cianjur</h4>
+
+              <p>
+                Mengelola administrasi surat masuk dan surat keluar, pencatatan,
+                pengarsipan, serta pendistribusian dokumen. Pengalaman ini
+                memperkuat kemampuan ketelitian, koordinasi, manajemen dokumen,
+                dan kerja secara terstruktur.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Administrasi</span>
+                <span class="tag">Dokumentasi</span>
+                <span class="tag">Koordinasi</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container reveal">
+        <p class="section-label">Education</p>
+        <h2 class="section-title">Pendidikan</h2>
+
+        <div class="education-grid">
+          <article class="education-card">
+            <span class="education-year">2022 — 2026</span>
+            <h3>Universitas Suryakancana</h3>
+            <p>Program Studi Teknik Informatika</p>
+            <p>IPK 3,51/4,00 — Predikat Dengan Pujian</p>
+          </article>
+
+          <article class="education-card">
+            <span class="education-year">FOCUS AREA</span>
+            <h3>Kompetensi yang Dikembangkan</h3>
+            <p>
+              Web development, PHP, HTML, CSS, JavaScript, MySQL, system
+              analysis, debugging, data warehouse, ETL, dan OLAP.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATE -->
+    <section id="certificates">
+      <div class="container reveal">
+        <p class="section-label">Certification</p>
+        <h2 class="section-title">Sertifikat & Pembelajaran</h2>
+
+        <div class="certificate-list">
+          <article class="certificate-card">
+            <div class="certificate-icon">✦</div>
+            <div>
+              <h3>TOEFL</h3>
+              <p>Sertifikasi kemampuan Bahasa Inggris</p>
+            </div>
+          </article>
+
+          <article class="certificate-card">
+            <div class="certificate-icon">⌘</div>
+            <div>
+              <h3>MATLAB Coder Onramp</h3>
+              <p>Pembelajaran pemrograman MATLAB</p>
+            </div>
+          </article>
+
+          <article class="certificate-card">
+            <div class="certificate-icon">AI</div>
+            <div>
+              <h3>Machine Learning Onramp</h3>
+              <p>Pengenalan konsep machine learning</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container reveal">
+        <div class="contact-box">
+          <p class="section-label">Get in touch</p>
+          <h2 class="section-title">Mari Berkolaborasi</h2>
+
+          <p>
+            Saya siap bekerja dan terbuka untuk peluang sebagai web developer,
+            pengembang sistem informasi, atau posisi teknologi yang relevan.
+          </p>
+
+          <a class="button button-primary" href="mailto:ariddd.edu@gmail.com">
+            Kirim Email →
+          </a>
+
+          <div class="contact-info">
+            <a href="mailto:ariddd.edu@gmail.com">
+              ariddd.edu@gmail.com
+            </a>
+
+            <a
+              href="https://wa.me/62895406725790"
+              target="_blank"
+              rel="noopener"
+            >
+              0895406725790
+            </a>
+
+            <a
+              href="https://github.com/mocharid"
+              target="_blank"
+              rel="noopener"
+            >
+              github.com/mocharid
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Muhamad Farid Indrawan · Built with passion & code.</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeButton = document.getElementById("themeButton");
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const sections = document.querySelectorAll("main section[id]");
+    const revealItems = document.querySelectorAll(".reveal");
+    const portrait = document.querySelector(".portrait");
+    const portraitProtection = document.querySelector(".portrait-protection");
+
+    themeButton.addEventListener("click", () => {
+      const lightMode = document.body.classList.toggle("light-mode");
+
+      document.documentElement.style.setProperty(
+        "--bg",
+        lightMode ? "#edf4ff" : "#050b1c"
+      );
+
+      document.documentElement.style.setProperty(
+        "--bg-soft",
+        lightMode ? "#dceaff" : "#08132b"
+      );
+
+      document.documentElement.style.setProperty(
+        "--card",
+        lightMode ? "rgba(255,255,255,.84)" : "rgba(15,31,67,.78)"
+      );
+
+      document.documentElement.style.setProperty(
+        "--text",
+        lightMode ? "#101b36" : "#f5f7ff"
+      );
+
+      document.documentElement.style.setProperty(
+        "--muted",
+        lightMode ? "#53627f" : "#a4b1ce"
+      );
+
+      themeButton.textContent = lightMode ? "☼" : "◐";
+    });
+
+    window.addEventListener("scroll", () => {
+      let currentSection = "home";
+
+      sections.forEach((section) => {
+        if (window.scrollY >= section.offsetTop - 150) {
+          currentSection = section.id;
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === "#" + currentSection
+        );
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      {
+        threshold: 0.10
+      }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    /* Mencegah drag dan klik kanan pada area foto */
+    portrait.addEventListener("dragstart", (event) => {
+      event.preventDefault();
+    });
+
+    portrait.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+    });
+
+    portraitProtection.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+    });
+
+    portraitProtection.addEventListener("dragstart", (event) => {
+      event.preventDefault();
+    });
+  </script>
+</body>
+</html>

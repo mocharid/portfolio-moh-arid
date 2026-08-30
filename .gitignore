@@ -1,0 +1,79 @@
+# =========================
+# SYSTEM FILES
+# =========================
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# =========================
+# EDITOR / IDE SETTINGS
+# =========================
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains IDE (IntelliJ IDEA, PhpStorm, WebStorm)
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# =========================
+# LOG & TEMPORARY FILES
+# =========================
+
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+*.cache
+
+# =========================
+# NODE.JS / FRONTEND TOOLS
+# =========================
+
+# Jika suatu saat memakai Node.js, npm, atau Vite
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Folder hasil build
+dist/
+build/
+.cache/
+
+# =========================
+# PRIVATE / SENSITIVE FILES
+# =========================
+
+# Jangan upload catatan pribadi atau file environment
+.env
+.env.*
+!.env.example
+
+private/
+private-notes/
+notes-pribadi/
+credentials/
+secrets/
+
+# =========================
+# OPTIONAL: FILE CV PRIBADI
+# =========================
+
+# Hapus tanda # di bawah ini jika TIDAK ingin CV ikut diunggah ke GitHub.
+# assets/cv-muhamad-farid-indrawan.pdf
