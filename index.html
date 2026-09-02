@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- Menonaktifkan zoom dari viewport mobile -->
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   />
 
   <meta
@@ -42,20 +41,28 @@
 
     html {
       scroll-behavior: smooth;
-      touch-action: pan-y;
+      overflow-x: hidden;
     }
 
     body {
       min-width: 320px;
+      max-width: 100vw;
+      overflow-x: hidden;
       color: var(--text);
       background:
-        radial-gradient(circle at 84% 12%, rgba(31, 104, 255, 0.20), transparent 26%),
-        radial-gradient(circle at 8% 80%, rgba(81, 59, 255, 0.08), transparent 28%),
+        radial-gradient(
+          circle at 84% 12%,
+          rgba(31, 104, 255, 0.20),
+          transparent 26%
+        ),
+        radial-gradient(
+          circle at 8% 80%,
+          rgba(81, 59, 255, 0.08),
+          transparent 28%
+        ),
         var(--bg);
       font-family: Inter, Arial, sans-serif;
       line-height: 1.6;
-      overflow-x: hidden;
-      touch-action: pan-y;
     }
 
     body::before {
@@ -65,8 +72,15 @@
       z-index: -3;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(72, 122, 238, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(72, 122, 238, 0.035) 1px, transparent 1px);
+        linear-gradient(
+          rgba(72, 122, 238, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(72, 122, 238, 0.035) 1px,
+          transparent 1px
+        );
       background-size: 58px 58px;
     }
 
@@ -186,12 +200,12 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(400px, 470px);
+      grid-template-columns: minmax(0, 1fr) minmax(470px, 560px);
       align-items: center;
-      gap: 56px;
+      gap: 42px;
       width: 100%;
       min-height: calc(100vh - 82px);
-      padding: 36px 0 28px;
+      padding: 28px 0 20px;
     }
 
     .hero-copy {
@@ -238,7 +252,12 @@
 
     .name-gradient {
       color: transparent;
-      background: linear-gradient(105deg, #ffffff 20%, #c7deff 60%, #6edcff);
+      background: linear-gradient(
+        105deg,
+        #ffffff 20%,
+        #c7deff 60%,
+        #6edcff
+      );
       background-clip: text;
       -webkit-background-clip: text;
     }
@@ -273,7 +292,10 @@
       font-size: 0.88rem;
       font-weight: 700;
       text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s;
     }
 
     .button:hover {
@@ -330,7 +352,7 @@
       background: rgba(39, 112, 255, 0.10);
     }
 
-    /* ================= FOTO DAN CAHAYA ================= */
+    /* ================= FOTO ================= */
 
     .portrait-area {
       position: relative;
@@ -338,8 +360,8 @@
       align-items: flex-end;
       justify-content: center;
       width: 100%;
-      height: 560px;
-      padding: 0 54px;
+      height: 620px;
+      padding: 0 55px;
       overflow: visible;
       isolation: isolate;
     }
@@ -350,15 +372,15 @@
       z-index: -5;
       top: 50%;
       left: 50%;
-      width: 760px;
-      height: 760px;
+      width: 800px;
+      height: 800px;
       transform: translate(-50%, -44%);
       border-radius: 50%;
       background:
         radial-gradient(
           circle at 50% 42%,
-          rgba(91, 175, 255, 0.34) 0%,
-          rgba(50, 122, 255, 0.22) 20%,
+          rgba(91, 175, 255, 0.36) 0%,
+          rgba(50, 122, 255, 0.24) 20%,
           rgba(28, 75, 196, 0.13) 38%,
           rgba(12, 40, 112, 0.06) 55%,
           transparent 76%
@@ -374,14 +396,14 @@
       z-index: -4;
       bottom: 35px;
       left: 50%;
-      width: 700px;
-      height: 390px;
+      width: 740px;
+      height: 410px;
       transform: translateX(-50%);
       border-radius: 50%;
       background:
         radial-gradient(
           ellipse at 50% 52%,
-          rgba(44, 117, 255, 0.20) 0%,
+          rgba(44, 117, 255, 0.22) 0%,
           rgba(24, 72, 191, 0.12) 30%,
           rgba(12, 42, 119, 0.05) 53%,
           transparent 78%
@@ -395,8 +417,8 @@
       z-index: -3;
       bottom: -85px;
       left: 50%;
-      width: 680px;
-      height: 250px;
+      width: 720px;
+      height: 260px;
       transform: translateX(-50%);
       border-radius: 50%;
       background:
@@ -416,8 +438,8 @@
       z-index: -2;
       bottom: 3px;
       left: 50%;
-      width: 470px;
-      height: 95px;
+      width: 510px;
+      height: 100px;
       transform: translateX(-50%);
       border-radius: 50%;
       background:
@@ -435,10 +457,10 @@
       position: relative;
       z-index: 1;
       display: block;
-      width: 345px;
-      height: 468px;
-      max-width: 100%;
-      margin-bottom: 14px;
+      width: 425px;
+      height: 575px;
+      max-width: none;
+      margin-bottom: 8px;
       object-fit: contain;
       object-position: center bottom;
 
@@ -446,8 +468,6 @@
       user-select: none;
       -webkit-user-drag: none;
       -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
 
       filter:
         drop-shadow(0 25px 26px rgba(0, 0, 0, 0.42))
@@ -498,10 +518,10 @@
     .portrait-protection {
       position: absolute;
       z-index: 2;
-      bottom: 14px;
+      bottom: 8px;
       left: 50%;
-      width: 345px;
-      height: 468px;
+      width: 425px;
+      height: 575px;
       transform: translateX(-50%);
       background: transparent;
       cursor: default;
@@ -539,13 +559,13 @@
     }
 
     .card-projects {
-      top: 98px;
-      right: 8px;
+      top: 100px;
+      right: 0;
     }
 
     .card-status {
-      right: 8px;
-      bottom: 75px;
+      right: 0;
+      bottom: 78px;
       animation-delay: -2s;
     }
 
@@ -752,7 +772,11 @@
       color: var(--cyan);
       font: 700 2.25rem / 1 monospace;
       background:
-        radial-gradient(circle at 25% 20%, rgba(71, 155, 255, 0.38), transparent 35%),
+        radial-gradient(
+          circle at 25% 20%,
+          rgba(71, 155, 255, 0.38),
+          transparent 35%
+        ),
         linear-gradient(135deg, #112d5c, #111939);
     }
 
@@ -1021,8 +1045,16 @@
       border: 1px solid rgba(101, 173, 255, 0.32);
       border-radius: 20px;
       background:
-        radial-gradient(circle at 50% -15%, rgba(58, 140, 255, 0.37), transparent 45%),
-        linear-gradient(135deg, rgba(23, 55, 126, 0.74), rgba(10, 20, 50, 0.92));
+        radial-gradient(
+          circle at 50% -15%,
+          rgba(58, 140, 255, 0.37),
+          transparent 45%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(23, 55, 126, 0.74),
+          rgba(10, 20, 50, 0.92)
+        );
       box-shadow: var(--shadow);
     }
 
@@ -1033,10 +1065,6 @@
       bottom: -25px;
       color: rgba(100, 177, 255, 0.08);
       font: 800 9rem / 1 monospace;
-    }
-
-    .contact-box .section-label {
-      justify-content: center;
     }
 
     .contact-box .section-title {
@@ -1085,7 +1113,9 @@
     .reveal {
       opacity: 0;
       transform: translateY(22px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
     }
 
     .reveal.visible {
@@ -1095,36 +1125,28 @@
 
     /* ================= RESPONSIVE ================= */
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1200px) {
       .hero-inner {
-        padding: 0 14px;
+        padding: 0 10px;
       }
 
       .hero-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(350px, 420px);
-        gap: 28px;
-      }
-
-      .nav-links {
-        gap: 15px;
-      }
-
-      .nav-links a {
-        font-size: 0.75rem;
+        grid-template-columns: minmax(0, 1fr) minmax(430px, 520px);
+        gap: 25px;
       }
 
       .portrait-area {
-        padding: 0 32px;
+        padding: 0 35px;
       }
 
       .portrait {
-        width: 320px;
-        height: 435px;
+        width: 400px;
+        height: 540px;
       }
 
       .portrait-protection {
-        width: 320px;
-        height: 435px;
+        width: 400px;
+        height: 540px;
       }
 
       .card-projects,
@@ -1133,7 +1155,7 @@
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
       .nav-links {
         display: none;
       }
@@ -1148,7 +1170,7 @@
       }
 
       .hero-grid {
-        padding-top: 52px;
+        padding-top: 35px;
       }
 
       .hero-copy {
@@ -1167,50 +1189,50 @@
 
       .portrait-area {
         order: -1;
-        height: 500px;
+        height: 590px;
         padding: 0 20px;
       }
 
       .portrait {
-        width: 335px;
-        height: 455px;
-        margin-bottom: 8px;
+        width: 430px;
+        height: 580px;
+        margin-bottom: 2px;
       }
 
       .portrait-protection {
-        bottom: 8px;
-        width: 335px;
-        height: 455px;
-      }
-
-      .portrait-area::before {
-        width: 580px;
+        bottom: 2px;
+        width: 430px;
         height: 580px;
       }
 
+      .portrait-area::before {
+        width: 650px;
+        height: 650px;
+      }
+
       .portrait-area::after {
-        width: 540px;
-        height: 300px;
+        width: 600px;
+        height: 340px;
       }
 
       .portrait-mist {
-        width: 520px;
-        height: 190px;
+        width: 570px;
+        height: 210px;
       }
 
       .portrait-shadow {
-        width: 360px;
-        height: 70px;
+        width: 420px;
+        height: 75px;
       }
 
       .card-projects {
-        top: 58px;
-        right: calc(50% - 220px);
+        top: 45px;
+        right: calc(50% - 245px);
       }
 
       .card-status {
-        right: calc(50% - 215px);
-        bottom: 56px;
+        right: calc(50% - 240px);
+        bottom: 50px;
       }
 
       .skills-grid,
@@ -1239,7 +1261,7 @@
 
       .hero-grid {
         min-height: calc(100vh - 70px);
-        padding-top: 25px;
+        padding-top: 18px;
       }
 
       section {
@@ -1255,40 +1277,40 @@
       }
 
       .portrait-area {
-        height: 415px;
-        padding: 0 16px;
+        height: 505px;
+        padding: 0 10px;
       }
 
       .portrait {
-        width: 285px;
-        height: 388px;
-        margin-bottom: 4px;
+        width: 355px;
+        height: 480px;
+        margin-bottom: 0;
       }
 
       .portrait-protection {
-        bottom: 4px;
-        width: 285px;
-        height: 388px;
+        bottom: 0;
+        width: 355px;
+        height: 480px;
       }
 
       .portrait-area::before {
-        width: 440px;
-        height: 440px;
+        width: 500px;
+        height: 500px;
       }
 
       .portrait-area::after {
-        width: 400px;
-        height: 230px;
+        width: 450px;
+        height: 250px;
       }
 
       .portrait-mist {
-        width: 380px;
-        height: 150px;
+        width: 430px;
+        height: 170px;
       }
 
       .portrait-shadow {
-        width: 275px;
-        height: 55px;
+        width: 320px;
+        height: 58px;
       }
 
       .floating-card {
@@ -1305,13 +1327,13 @@
       }
 
       .card-projects {
-        top: 40px;
+        top: 28px;
         right: 0;
       }
 
       .card-status {
         right: 0;
-        bottom: 33px;
+        bottom: 24px;
       }
 
       .skills-grid,
@@ -1339,6 +1361,27 @@
 
       .timeline-card {
         padding: 20px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .portrait-area {
+        height: 460px;
+      }
+
+      .portrait {
+        width: 320px;
+        height: 435px;
+      }
+
+      .portrait-protection {
+        width: 320px;
+        height: 435px;
+      }
+
+      .card-projects,
+      .card-status {
+        right: -4px;
       }
     }
   </style>
@@ -1374,7 +1417,9 @@
         <div class="container">
           <div class="hero-grid">
             <div class="hero-copy">
-              <div class="availability">Available for opportunities</div>
+              <div class="availability">
+                Available for opportunities
+              </div>
 
               <p class="intro">Hi, I'm</p>
 
@@ -1383,12 +1428,15 @@
                 Farid Indrawan
               </h1>
 
-              <p class="role">Fresh Graduate — Teknik Informatika</p>
+              <p class="role">
+                Fresh Graduate — Teknik Informatika
+              </p>
 
               <p class="hero-description">
-                Fresh graduate Teknik Informatika Universitas Suryakancana yang
-                berfokus pada pengembangan aplikasi web, sistem informasi,
-                pengolahan data, dan solusi digital yang mudah digunakan.
+                Fresh graduate Teknik Informatika Universitas Suryakancana
+                yang berfokus pada pengembangan aplikasi web, sistem
+                informasi, pengolahan data, dan solusi digital yang mudah
+                digunakan.
               </p>
 
               <div class="hero-buttons">
@@ -1470,8 +1518,9 @@
         <h2 class="section-title">Tentang Saya</h2>
 
         <p class="section-description">
-          Fresh graduate dengan minat di bidang pengembangan aplikasi web,
-          sistem informasi, basis data, dan pengolahan data.
+          Fresh graduate dengan latar belakang SMK Akuntansi dan pengalaman
+          di bidang pengembangan aplikasi web, sistem informasi, basis data,
+          dan pengolahan data.
         </p>
 
         <div class="about-grid">
@@ -1479,16 +1528,17 @@
             <p>
               Saya adalah fresh graduate Teknik Informatika Universitas
               Suryakancana dengan IPK 3,51/4,00 dan predikat Dengan Pujian.
-              Saya memiliki ketertarikan untuk membangun aplikasi berbasis web
-              yang rapi, mudah digunakan, dan sesuai kebutuhan pengguna.
+              Latar belakang pendidikan saya dimulai dari SMK Akuntansi dan
+              Keuangan Lembaga, yang memberikan dasar kuat dalam akuntansi,
+              keuangan, dan administrasi.
             </p>
 
             <p>
               Saya terbiasa menggunakan PHP, HTML, CSS, JavaScript, dan MySQL.
               Saya memiliki pengalaman kerja praktik dalam pengembangan aplikasi
-              Bank Mini Sekolah, serta mengembangkan skripsi tentang implementasi
-              data warehouse untuk analisis persebaran dapur MBG dan rekomendasi
-              prioritas pembangunan SPPG di Kabupaten Cianjur.
+              Bank Mini Sekolah, serta mengembangkan skripsi tentang
+              implementasi data warehouse untuk analisis persebaran dapur MBG
+              dan rekomendasi prioritas pembangunan SPPG di Kabupaten Cianjur.
             </p>
           </div>
 
@@ -1499,13 +1549,13 @@
             </div>
 
             <div class="fact">
-              <strong>Web</strong>
-              <span>Application Development</span>
+              <strong>SMK</strong>
+              <span>Akuntansi & Keuangan</span>
             </div>
 
             <div class="fact">
-              <strong>Data</strong>
-              <span>Warehouse & OLAP</span>
+              <strong>Web</strong>
+              <span>Application Development</span>
             </div>
 
             <div class="fact">
@@ -1532,49 +1582,65 @@
           <article class="skill-card">
             <div class="skill-icon">PHP</div>
             <h3>PHP Development</h3>
-            <p>Mengembangkan fitur dan logika aplikasi web menggunakan PHP.</p>
+            <p>
+              Mengembangkan fitur dan logika aplikasi web menggunakan PHP.
+            </p>
           </article>
 
           <article class="skill-card">
             <div class="skill-icon">&lt;/&gt;</div>
             <h3>HTML & CSS</h3>
-            <p>Membangun struktur halaman dan antarmuka web responsif.</p>
+            <p>
+              Membangun struktur halaman dan antarmuka web responsif.
+            </p>
           </article>
 
           <article class="skill-card">
             <div class="skill-icon">JS</div>
             <h3>JavaScript</h3>
-            <p>Membuat interaksi, validasi, dan fungsi halaman web.</p>
+            <p>
+              Membuat interaksi, validasi, dan fungsi halaman web.
+            </p>
           </article>
 
           <article class="skill-card">
             <div class="skill-icon">SQL</div>
             <h3>MySQL Database</h3>
-            <p>Mengelola basis data dan memahami query SQL.</p>
+            <p>
+              Mengelola basis data dan memahami query SQL.
+            </p>
           </article>
 
           <article class="skill-card">
             <div class="skill-icon">DW</div>
             <h3>Data Warehouse</h3>
-            <p>Memahami ETL, tabel fakta, dimensi, dan analisis OLAP.</p>
+            <p>
+              Memahami ETL, tabel fakta, dimensi, dan analisis OLAP.
+            </p>
           </article>
 
           <article class="skill-card">
-            <div class="skill-icon">BUG</div>
-            <h3>Debugging</h3>
-            <p>Menganalisis dan memperbaiki masalah pada fitur aplikasi.</p>
+            <div class="skill-icon">ACC</div>
+            <h3>Dasar Akuntansi</h3>
+            <p>
+              Memahami konsep akuntansi, laporan keuangan, dan siklus akuntansi.
+            </p>
           </article>
 
           <article class="skill-card">
             <div class="skill-icon">TEAM</div>
             <h3>Kerja Sama Tim</h3>
-            <p>Berkomunikasi dan bekerja secara kolaboratif dengan tim.</p>
+            <p>
+              Berkomunikasi dan bekerja secara kolaboratif dengan tim.
+            </p>
           </article>
 
           <article class="skill-card">
             <div class="skill-icon">PS</div>
             <h3>Problem Solving</h3>
-            <p>Menyusun solusi dari kebutuhan dan kendala sistem.</p>
+            <p>
+              Menyusun solusi dari kebutuhan dan kendala sistem.
+            </p>
           </article>
         </div>
       </div>
@@ -1634,13 +1700,15 @@
             </div>
 
             <div class="project-body">
-              <h3>Data Warehouse Analisis Persebaran Dapur MBG</h3>
+              <h3>
+                Data Warehouse Analisis Persebaran Dapur MBG
+              </h3>
 
               <p>
                 Implementasi data warehouse untuk menganalisis persebaran dapur
                 MBG dan mendukung rekomendasi prioritas pembangunan SPPG di
-                Kabupaten Cianjur melalui integrasi data, ETL, model dimensional,
-                dan OLAP.
+                Kabupaten Cianjur melalui integrasi data, ETL, model
+                dimensional, dan OLAP.
               </p>
 
               <div class="tags">
@@ -1703,12 +1771,14 @@
 
             <article class="timeline-card">
               <span class="timeline-date">2023 — 2024</span>
-              <h3>Kerja Praktik — Pengembangan Aplikasi Bank Mini</h3>
+              <h3>
+                Kerja Praktik — Pengembangan Aplikasi Bank Mini
+              </h3>
               <h4>SMK Plus Ashabulyamin Cianjur</h4>
 
               <p>
-                Berkontribusi dalam pengembangan aplikasi Bank Mini Sekolah untuk
-                pengelolaan data siswa, transaksi tabungan, dan laporan.
+                Berkontribusi dalam pengembangan aplikasi Bank Mini Sekolah
+                untuk pengelolaan data siswa, transaksi tabungan, dan laporan.
                 Mengerjakan struktur halaman, fitur aplikasi, pengujian,
                 debugging, serta pengolahan data.
               </p>
@@ -1763,12 +1833,10 @@
           </article>
 
           <article class="education-card">
-            <span class="education-year">FOCUS AREA</span>
-            <h3>Kompetensi yang Dikembangkan</h3>
-            <p>
-              Web development, PHP, HTML, CSS, JavaScript, MySQL, system
-              analysis, debugging, data warehouse, ETL, dan OLAP.
-            </p>
+            <span class="education-year">SEBELUMNYA</span>
+            <h3>SMK Akuntansi dan Keuangan Lembaga</h3>
+            <p>Kompetensi Keahlian Akuntansi</p>
+            <p>Dasar akuntansi, keuangan, dan administrasi</p>
           </article>
         </div>
       </div>
@@ -1781,6 +1849,14 @@
         <h2 class="section-title">Sertifikat & Pembelajaran</h2>
 
         <div class="certificate-list">
+          <article class="certificate-card">
+            <div class="certificate-icon">IAI</div>
+            <div>
+              <h3>Sertifikasi IAI</h3>
+              <p>Ikatan Akuntan Indonesia</p>
+            </div>
+          </article>
+
           <article class="certificate-card">
             <div class="certificate-icon">✦</div>
             <div>
@@ -1820,7 +1896,10 @@
             pengembang sistem informasi, atau posisi teknologi yang relevan.
           </p>
 
-          <a class="button button-primary" href="mailto:ariddd.edu@gmail.com">
+          <a
+            class="button button-primary"
+            href="mailto:ariddd.edu@gmail.com"
+          >
             Kirim Email →
           </a>
 
@@ -1852,7 +1931,9 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Muhamad Farid Indrawan · Built with passion & code.</p>
+      <p>
+        © 2026 Muhamad Farid Indrawan · Built with passion & code.
+      </p>
     </div>
   </footer>
 
@@ -1861,9 +1942,11 @@
     const sections = document.querySelectorAll("main section[id]");
     const revealItems = document.querySelectorAll(".reveal");
     const portrait = document.querySelector(".portrait");
-    const portraitProtection = document.querySelector(".portrait-protection");
+    const portraitProtection = document.querySelector(
+      ".portrait-protection"
+    );
 
-    /* Menandai menu navbar aktif saat scroll */
+    /* Navbar aktif saat scroll */
     window.addEventListener("scroll", () => {
       let currentSection = "home";
 
@@ -1881,7 +1964,7 @@
       });
     });
 
-    /* Animasi section saat muncul */
+    /* Animasi section */
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -1897,12 +1980,12 @@
 
     revealItems.forEach((item) => observer.observe(item));
 
-    /* Mencegah drag gambar */
+    /* Mencegah drag foto */
     portrait.addEventListener("dragstart", (event) => {
       event.preventDefault();
     });
 
-    /* Mencegah klik kanan pada gambar */
+    /* Mencegah klik kanan pada foto */
     portrait.addEventListener("contextmenu", (event) => {
       event.preventDefault();
     });
@@ -1914,77 +1997,6 @@
     portraitProtection.addEventListener("dragstart", (event) => {
       event.preventDefault();
     });
-
-    /*
-      Mencegah zoom Ctrl + scroll mouse.
-      Scroll biasa tanpa Ctrl tetap berjalan normal.
-    */
-    window.addEventListener(
-      "wheel",
-      (event) => {
-        if (event.ctrlKey) {
-          event.preventDefault();
-        }
-      },
-      {
-        passive: false
-      }
-    );
-
-    /*
-      Mencegah shortcut zoom:
-      Ctrl + Plus
-      Ctrl + Minus
-      Ctrl + 0
-      Cmd + Plus/Minus/0 pada Mac
-    */
-    window.addEventListener("keydown", (event) => {
-      const isZoomShortcut =
-        (event.ctrlKey || event.metaKey) &&
-        (
-          event.key === "+" ||
-          event.key === "-" ||
-          event.key === "=" ||
-          event.key === "0"
-        );
-
-      if (isZoomShortcut) {
-        event.preventDefault();
-      }
-    });
-
-    /*
-      Mencegah gesture pinch zoom pada perangkat touch.
-    */
-    document.addEventListener(
-      "gesturestart",
-      (event) => {
-        event.preventDefault();
-      },
-      {
-        passive: false
-      }
-    );
-
-    document.addEventListener(
-      "gesturechange",
-      (event) => {
-        event.preventDefault();
-      },
-      {
-        passive: false
-      }
-    );
-
-    document.addEventListener(
-      "gestureend",
-      (event) => {
-        event.preventDefault();
-      },
-      {
-        passive: false
-      }
-    );
   </script>
 </body>
 </html>
