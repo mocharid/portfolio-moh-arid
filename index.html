@@ -5,14 +5,15 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
   />
 
-  <!-- Warna tema browser mobile Android -->
+  <!-- Warna browser Android, Chrome, dan Safari -->
   <meta name="theme-color" content="#07101f" />
-  <meta name="msapplication-navbutton-color" content="#07101f" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#07101f" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#07101f" />
 
-  <!-- Dukungan tampilan browser / shortcut iPhone -->
+  <!-- Pengaturan khusus iPhone -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Farid Portfolio" />
@@ -57,9 +58,9 @@
 
     html {
       min-height: 100%;
-      scroll-behavior: smooth;
       background: var(--navy);
       color-scheme: dark;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -67,10 +68,31 @@
       min-height: 100vh;
       overflow-x: hidden;
       color: var(--text);
-      background: var(--white);
+      background: var(--navy);
       font-family: Inter, Arial, sans-serif;
       line-height: 1.7;
       overscroll-behavior-y: none;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      right: 0;
+      left: 0;
+      z-index: -1;
+      background: var(--navy);
+      pointer-events: none;
+    }
+
+    body::before {
+      top: 0;
+      height: env(safe-area-inset-top);
+    }
+
+    body::after {
+      bottom: 0;
+      height: env(safe-area-inset-bottom);
     }
 
     a {
@@ -94,12 +116,13 @@
     header {
       position: fixed;
       top: 0;
+      right: 0;
       left: 0;
       z-index: 100;
-      width: 100%;
-      height: 76px;
+      min-height: calc(76px + env(safe-area-inset-top));
+      padding-top: env(safe-area-inset-top);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(7, 16, 31, 0.97);
+      background: rgba(7, 16, 31, 0.98);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       opacity: 0;
@@ -201,8 +224,8 @@
       position: relative;
       display: flex;
       align-items: center;
-      min-height: 665px;
-      padding-top: 76px;
+      min-height: calc(665px + env(safe-area-inset-top));
+      padding-top: calc(76px + env(safe-area-inset-top));
       padding-bottom: 85px;
       overflow: hidden;
       color: var(--white);
@@ -443,6 +466,7 @@
 
     section:not(.hero) {
       padding: 68px 0;
+      background: var(--white);
     }
 
     .section-label {
@@ -476,7 +500,7 @@
 
     .soft-section {
       position: relative;
-      background: var(--soft);
+      background: var(--soft) !important;
     }
 
     .soft-section::before {
@@ -1014,6 +1038,7 @@
 
     .contact-section {
       padding: 75px 0 !important;
+      background: var(--white) !important;
     }
 
     .contact-grid {
@@ -1112,7 +1137,7 @@
     ========================================= */
 
     footer {
-      padding: 30px 0;
+      padding: 30px 0 calc(30px + env(safe-area-inset-bottom));
       color: #aebbd2;
       background: var(--navy);
     }
@@ -1287,7 +1312,7 @@
 
       .nav-links {
         position: absolute;
-        top: 76px;
+        top: calc(76px + env(safe-area-inset-top));
         right: 24px;
         left: 24px;
         display: none;
@@ -1439,13 +1464,16 @@
         width: min(100% - 30px, 1160px);
       }
 
-      header,
+      header {
+        min-height: calc(68px + env(safe-area-inset-top));
+      }
+
       nav {
         height: 68px;
       }
 
       .nav-links {
-        top: 68px;
+        top: calc(68px + env(safe-area-inset-top));
         right: 15px;
         left: 15px;
       }
@@ -1462,7 +1490,8 @@
       }
 
       .hero {
-        padding-top: 68px;
+        min-height: auto;
+        padding-top: calc(68px + env(safe-area-inset-top));
         padding-bottom: 48px;
       }
 
@@ -1472,8 +1501,8 @@
 
       .hero-content {
         width: 100%;
-        padding-right: 14px;
-        padding-left: 14px;
+        padding-right: 18px;
+        padding-left: 18px;
       }
 
       h1 {
@@ -1586,8 +1615,8 @@
 
     @media (max-width: 360px) {
       .hero-content {
-        padding-right: 8px;
-        padding-left: 8px;
+        padding-right: 12px;
+        padding-left: 12px;
       }
 
       .hero-buttons {
@@ -1620,7 +1649,9 @@
   <header>
     <div class="container">
       <nav>
-        <a class="brand" href="#home">Muhamad Farid Indrawan</a>
+        <a class="brand" href="#home">
+          Muhamad Farid Indrawan
+        </a>
 
         <ul class="nav-links">
           <li><a class="active" href="#home">Beranda</a></li>
