@@ -2,14 +2,26 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   />
+
+  <!-- Warna tema browser mobile Android -->
+  <meta name="theme-color" content="#07101f" />
+  <meta name="msapplication-navbutton-color" content="#07101f" />
+
+  <!-- Dukungan tampilan browser / shortcut iPhone -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Farid Portfolio" />
+
   <meta
     name="description"
     content="Portofolio Muhamad Farid Indrawan — Lulusan Teknik Informatika, Pengembang Web dan Sistem Informasi."
   />
+
   <title>Muhamad Farid Indrawan | Fresh Graduate Informatika</title>
 
   <link
@@ -22,6 +34,7 @@
 
     :root {
       --navy: #07101f;
+      --navy-light: #0d1a31;
       --blue: #2f62eb;
       --blue-light: #6389ff;
       --white: #ffffff;
@@ -39,19 +52,25 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html {
+      min-height: 100%;
       scroll-behavior: smooth;
+      background: var(--navy);
+      color-scheme: dark;
     }
 
     body {
       min-width: 320px;
+      min-height: 100vh;
       overflow-x: hidden;
       color: var(--text);
       background: var(--white);
       font-family: Inter, Arial, sans-serif;
       line-height: 1.7;
+      overscroll-behavior-y: none;
     }
 
     a {
@@ -80,8 +99,9 @@
       width: 100%;
       height: 76px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(7, 16, 31, 0.96);
+      background: rgba(7, 16, 31, 0.97);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       opacity: 0;
       animation: fadeDown 0.7s ease forwards;
     }
@@ -1275,10 +1295,10 @@
         align-items: stretch;
         gap: 0;
         padding: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(111, 149, 255, 0.2);
         border-radius: 12px;
-        background: rgba(7, 16, 31, 0.98);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        background: rgba(7, 16, 31, 0.99);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
       }
 
       .nav-links.show {
@@ -1293,6 +1313,12 @@
         display: block;
         padding: 12px 14px;
         font-size: 0.76rem;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        border-radius: 8px;
+        background: rgba(67, 108, 228, 0.16);
       }
 
       .nav-links a.active::after {
@@ -1444,7 +1470,6 @@
         padding-top: 36px;
       }
 
-      /* Membuat area teks hero lebih masuk ke tengah */
       .hero-content {
         width: 100%;
         padding-right: 14px;
@@ -1468,7 +1493,6 @@
         max-width: 330px;
       }
 
-      /* Tombol tetap sebaris dan panjang mengikuti isi */
       .hero-buttons {
         display: flex;
         flex-direction: row;
@@ -1633,7 +1657,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-grid">
@@ -1708,7 +1731,6 @@
       </div>
     </section>
 
-    <!-- PROFILE -->
     <section class="light-section" id="about">
       <div class="container reveal">
         <div class="about-grid">
@@ -1811,7 +1833,6 @@
       </div>
     </section>
 
-    <!-- COMPETENCIES -->
     <section class="soft-section" id="skills">
       <div class="container reveal">
         <div class="section-head">
@@ -1924,7 +1945,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="light-section" id="projects">
       <div class="container reveal">
         <div class="section-head">
@@ -2086,7 +2106,6 @@
       </div>
     </section>
 
-    <!-- EDUCATION -->
     <section class="soft-section" id="education">
       <div class="container reveal">
         <div class="section-head">
@@ -2204,7 +2223,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="light-section contact-section" id="contact">
       <div class="container reveal">
         <div class="contact-grid">
