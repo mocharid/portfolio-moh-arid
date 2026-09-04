@@ -52,10 +52,6 @@
       --radius: 14px;
     }
 
-    /* =========================================
-       DARK MODE
-    ========================================= */
-
     body.dark-mode {
       --white: #0b1830;
       --ink: #edf4ff;
@@ -283,6 +279,112 @@
 
     .nav-cv .mobile-cv-text {
       display: none;
+    }
+
+    /* =========================================
+       LANGUAGE DROPDOWN
+    ========================================= */
+
+    .language-dropdown {
+      position: relative;
+      z-index: 120;
+    }
+
+    .language-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 39px;
+      padding: 0 11px;
+      border: 1px solid #4b5c78;
+      border-radius: 100px;
+      color: #ffffff;
+      background: transparent;
+      cursor: pointer;
+      font-family: Inter, Arial, sans-serif;
+      font-size: 0.64rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .language-toggle:hover,
+    .language-dropdown.open .language-toggle {
+      border-color: #9ab4ff;
+      color: #9ab4ff;
+      background: rgba(92, 132, 255, 0.12);
+    }
+
+    .language-flag {
+      width: 20px;
+      height: 14px;
+      overflow: hidden;
+      border-radius: 2px;
+      object-fit: cover;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+    }
+
+    .language-toggle .chevron {
+      margin-left: 1px;
+      font-size: 0.57rem;
+      transition: transform 0.2s ease;
+    }
+
+    .language-dropdown.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .language-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      display: none;
+      width: 172px;
+      padding: 5px;
+      overflow: hidden;
+      border: 1px solid rgba(122, 156, 239, 0.35);
+      border-radius: 10px;
+      background: rgba(7, 16, 31, 0.99);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.36);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .language-dropdown.open .language-menu {
+      display: grid;
+    }
+
+    .language-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px;
+      border: 0;
+      border-radius: 7px;
+      color: #c9d5ec;
+      background: transparent;
+      cursor: pointer;
+      font-family: Inter, Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-align: left;
+      transition: 0.2s ease;
+    }
+
+    .language-option:hover,
+    .language-option.active {
+      color: #ffffff;
+      background: rgba(68, 111, 231, 0.22);
+    }
+
+    .language-option.active::after {
+      margin-left: auto;
+      color: #8eadff;
+      font-family: "Font Awesome 6 Free";
+      font-size: 0.63rem;
+      font-weight: 900;
+      content: "\f00c";
     }
 
     .menu-toggle {
@@ -609,7 +711,7 @@
     }
 
     /* =========================================
-       TEMPLATE KERTAS / FORMULIR
+       TEMPLATE KERTAS
     ========================================= */
 
     .paper-card {
@@ -1793,7 +1895,7 @@
     }
 
     /* =========================================
-       RESPONSIVE TABLET
+       RESPONSIVE
     ========================================= */
 
     @media (max-width: 1150px) {
@@ -1851,9 +1953,17 @@
         gap: 7px;
       }
 
+      .theme-toggle,
+      .language-toggle {
+        height: 38px;
+      }
+
       .theme-toggle {
         width: 38px;
-        height: 38px;
+      }
+
+      .language-toggle {
+        padding: 0 10px;
       }
 
       .nav-cv {
@@ -1963,10 +2073,6 @@
       }
     }
 
-    /* =========================================
-       RESPONSIVE HP
-    ========================================= */
-
     @media (max-width: 600px) {
       .container {
         width: min(100% - 30px, 1160px);
@@ -1987,7 +2093,7 @@
       }
 
       .brand {
-        max-width: 145px;
+        max-width: 118px;
         overflow: hidden;
         font-size: 0.72rem;
         text-overflow: ellipsis;
@@ -1996,6 +2102,24 @@
       .theme-toggle {
         width: 36px;
         height: 36px;
+      }
+
+      .language-toggle {
+        height: 36px;
+        padding: 0 8px;
+        border-radius: 8px;
+      }
+
+      .language-toggle .lang-name {
+        display: none;
+      }
+
+      .language-toggle .chevron {
+        font-size: 0.5rem;
+      }
+
+      .language-menu {
+        width: 158px;
       }
 
       .nav-cv {
@@ -2239,7 +2363,7 @@
 
     @media (max-width: 390px) {
       .brand {
-        max-width: 95px;
+        max-width: 78px;
       }
 
       .nav-actions {
@@ -2247,9 +2371,24 @@
       }
 
       .theme-toggle,
-      .menu-toggle {
+      .menu-toggle,
+      .language-toggle {
         width: 34px;
         height: 34px;
+      }
+
+      .language-toggle {
+        justify-content: center;
+        padding: 0;
+      }
+
+      .language-toggle .chevron {
+        display: none;
+      }
+
+      .language-flag {
+        width: 18px;
+        height: 13px;
       }
 
       .nav-cv {
@@ -2305,12 +2444,12 @@
         <a class="brand" href="#home">Muhamad Farid Indrawan</a>
 
         <ul class="nav-links">
-          <li><a class="active" href="#home">Beranda</a></li>
-          <li><a href="#about">Profil</a></li>
-          <li><a href="#skills">Kompetensi</a></li>
-          <li><a href="#projects">Proyek</a></li>
-          <li><a href="#education">Pendidikan</a></li>
-          <li><a href="#contact">Kontak</a></li>
+          <li><a class="active" href="#home" data-id="Beranda" data-en="Home">Beranda</a></li>
+          <li><a href="#about" data-id="Profil" data-en="Profile">Profil</a></li>
+          <li><a href="#skills" data-id="Kompetensi" data-en="Skills">Kompetensi</a></li>
+          <li><a href="#projects" data-id="Proyek" data-en="Projects">Proyek</a></li>
+          <li><a href="#education" data-id="Pendidikan" data-en="Education">Pendidikan</a></li>
+          <li><a href="#contact" data-id="Kontak" data-en="Contact">Kontak</a></li>
         </ul>
 
         <div class="nav-actions">
@@ -2338,6 +2477,46 @@
             <span class="mobile-cv-text">CV</span>
           </a>
 
+          <!-- Dropdown bahasa di kanan Download CV -->
+          <div class="language-dropdown" id="languageDropdown">
+            <button
+              class="language-toggle"
+              id="languageToggle"
+              type="button"
+              aria-label="Pilih bahasa"
+              aria-expanded="false"
+            >
+              <img
+                class="language-flag"
+                id="currentFlag"
+                src="https://flagcdn.com/w40/id.png"
+                alt="Bendera Indonesia"
+              />
+              <span class="lang-name" id="currentLanguageName">Indonesia</span>
+              <i class="fa-solid fa-chevron-down chevron"></i>
+            </button>
+
+            <div class="language-menu" id="languageMenu">
+              <button class="language-option active" type="button" data-language="id">
+                <img
+                  class="language-flag"
+                  src="https://flagcdn.com/w40/id.png"
+                  alt="Bendera Indonesia"
+                />
+                <span>Indonesia</span>
+              </button>
+
+              <button class="language-option" type="button" data-language="en">
+                <img
+                  class="language-flag"
+                  src="https://flagcdn.com/w40/us.png"
+                  alt="United States flag"
+                />
+                <span>English</span>
+              </button>
+            </div>
+          </div>
+
           <button
             class="menu-toggle"
             type="button"
@@ -2357,7 +2536,11 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-            <p class="hero-label fade-up delay-1">
+            <p
+              class="hero-label fade-up delay-1"
+              data-id="Fresh Graduate — Teknik Informatika"
+              data-en="Fresh Graduate — Informatics Engineering"
+            >
               Fresh Graduate — Teknik Informatika
             </p>
 
@@ -2366,16 +2549,23 @@
               <span class="name-blue">Farid Indrawan</span>
             </h1>
 
-            <p class="hero-role fade-up delay-3">
+            <p
+              class="hero-role fade-up delay-3"
+              data-id="Web Developer · System Information · Data Enthusiast"
+              data-en="Web Developer · Information Systems · Data Enthusiast"
+            >
               Web Developer · System Information · Data Enthusiast
             </p>
 
-            <p class="hero-summary fade-up delay-4">
-              Lulusan Teknik Informatika yang memiliki minat dalam
-              pengembangan website, sistem informasi, database, serta
-              pengolahan data. Memiliki latar belakang Akuntansi dan Keuangan
-              Lembaga untuk memahami kebutuhan proses bisnis dan pencatatan
-              data keuangan.
+            <p
+              class="hero-summary fade-up delay-4"
+              data-id="Lulusan Teknik Informatika yang memiliki minat dalam pengembangan website, sistem informasi, database, serta pengolahan data. Memiliki latar belakang Akuntansi dan Keuangan Lembaga untuk memahami kebutuhan proses bisnis dan pencatatan data keuangan."
+              data-en="Informatics Engineering graduate with an interest in website development, information systems, databases, and data processing. I also have a background in Accounting and Institutional Finance to understand business processes and financial data recording."
+            >
+              Lulusan Teknik Informatika yang memiliki minat dalam pengembangan
+              website, sistem informasi, database, serta pengolahan data.
+              Memiliki latar belakang Akuntansi dan Keuangan Lembaga untuk
+              memahami kebutuhan proses bisnis dan pencatatan data keuangan.
             </p>
 
             <ul class="hero-keywords fade-up delay-4">
@@ -2383,18 +2573,18 @@
               <li>PHP & Laravel</li>
               <li>MySQL & Database</li>
               <li>Data Warehouse</li>
-              <li>Akuntansi</li>
+              <li data-id="Akuntansi" data-en="Accounting">Akuntansi</li>
             </ul>
 
             <div class="hero-buttons fade-up delay-5">
               <a class="button button-primary" href="#projects">
                 <i class="fa-solid fa-briefcase"></i>
-                Lihat Proyek
+                <span data-id="Lihat Proyek" data-en="View Projects">Lihat Proyek</span>
               </a>
 
               <a class="button button-outline" href="#contact">
                 <i class="fa-solid fa-paper-plane"></i>
-                Hubungi Saya
+                <span data-id="Hubungi Saya" data-en="Contact Me">Hubungi Saya</span>
               </a>
             </div>
           </div>
@@ -2432,18 +2622,37 @@
       <div class="container reveal">
         <div class="about-grid">
           <div>
-            <p class="section-label">Profil Profesional</p>
-            <h2 class="section-title">Tentang Saya</h2>
+            <p
+              class="section-label"
+              data-id="Profil Profesional"
+              data-en="Professional Profile"
+            >
+              Profil Profesional
+            </p>
+
+            <h2
+              class="section-title"
+              data-id="Tentang Saya"
+              data-en="About Me"
+            >
+              Tentang Saya
+            </h2>
 
             <div class="about-text">
-              <p>
+              <p
+                data-id="Saya merupakan lulusan Teknik Informatika dari Universitas Suryakancana. Saya memiliki ketertarikan dalam pengembangan website, sistem informasi, database, pengolahan data, dan implementasi Data Warehouse."
+                data-en="I am an Informatics Engineering graduate from Universitas Suryakancana. I am interested in website development, information systems, databases, data processing, and Data Warehouse implementation."
+              >
                 Saya merupakan lulusan Teknik Informatika dari Universitas
                 Suryakancana. Saya memiliki ketertarikan dalam pengembangan
                 website, sistem informasi, database, pengolahan data, dan
                 implementasi Data Warehouse.
               </p>
 
-              <p>
+              <p
+                data-id="Sebelum menempuh pendidikan Teknik Informatika, saya menyelesaikan pendidikan Akuntansi dan Keuangan Lembaga di SMK Plus Ashabulyamin. Latar belakang ini membantu saya memahami proses bisnis, administrasi keuangan, pencatatan transaksi, dan pengelolaan data."
+                data-en="Before studying Informatics Engineering, I completed Accounting and Institutional Finance education at SMK Plus Ashabulyamin. This background helps me understand business processes, financial administration, transaction recording, and data management."
+              >
                 Sebelum menempuh pendidikan Teknik Informatika, saya
                 menyelesaikan pendidikan Akuntansi dan Keuangan Lembaga di SMK
                 Plus Ashabulyamin. Latar belakang ini membantu saya memahami
@@ -2451,7 +2660,10 @@
                 pengelolaan data.
               </p>
 
-              <p>
+              <p
+                data-id="Saya telah mengembangkan proyek sistem informasi dan analisis data, termasuk aplikasi Bank Mini Sekolah serta implementasi Data Warehouse untuk analisis persebaran dapur MBG di Kabupaten Cianjur."
+                data-en="I have developed information system and data analysis projects, including a School Mini Bank application and Data Warehouse implementation for MBG kitchen distribution analysis in Cianjur Regency."
+              >
                 Saya telah mengembangkan proyek sistem informasi dan analisis
                 data, termasuk aplikasi Bank Mini Sekolah serta implementasi
                 Data Warehouse untuk analisis persebaran dapur MBG di Kabupaten
@@ -2462,20 +2674,35 @@
             <ul class="about-points">
               <li>
                 <i class="fa-solid fa-check"></i>
-                Memiliki pengalaman mengembangkan aplikasi web berbasis PHP,
-                Laravel, dan MySQL.
+                <span
+                  data-id="Memiliki pengalaman mengembangkan aplikasi web berbasis PHP, Laravel, dan MySQL."
+                  data-en="Experience in developing web applications using PHP, Laravel, and MySQL."
+                >
+                  Memiliki pengalaman mengembangkan aplikasi web berbasis PHP,
+                  Laravel, dan MySQL.
+                </span>
               </li>
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Memahami perancangan sistem, database, alur bisnis, dan
-                manajemen data.
+                <span
+                  data-id="Memahami perancangan sistem, database, alur bisnis, dan manajemen data."
+                  data-en="Understanding of system design, databases, business processes, and data management."
+                >
+                  Memahami perancangan sistem, database, alur bisnis, dan
+                  manajemen data.
+                </span>
               </li>
 
               <li>
                 <i class="fa-solid fa-check"></i>
-                Memiliki dasar akuntansi, administrasi keuangan, pencatatan
-                transaksi, dan pelaporan keuangan.
+                <span
+                  data-id="Memiliki dasar akuntansi, administrasi keuangan, pencatatan transaksi, dan pelaporan keuangan."
+                  data-en="Foundation in accounting, financial administration, transaction recording, and financial reporting."
+                >
+                  Memiliki dasar akuntansi, administrasi keuangan, pencatatan
+                  transaksi, dan pelaporan keuangan.
+                </span>
               </li>
             </ul>
           </div>
@@ -2488,7 +2715,11 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Career Profile</h3>
-                <p class="paper-header-subtitle">
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Ringkasan informasi kandidat profesional"
+                  data-en="Professional candidate summary"
+                >
                   Ringkasan informasi kandidat profesional
                 </p>
               </div>
@@ -2502,20 +2733,31 @@
                   <i class="fa-solid fa-graduation-cap"></i>
                 </span>
 
-                <span class="career-form-label">Pendidikan</span>
+                <span
+                  class="career-form-label"
+                  data-id="Pendidikan"
+                  data-en="Education"
+                >
+                  Pendidikan
+                </span>
 
-                <span class="career-form-value">
+                <span
+                  class="career-form-value"
+                  data-id="S1 Teknik Informatika — Universitas Suryakancana"
+                  data-en="Bachelor of Informatics Engineering — Universitas Suryakancana"
+                >
                   S1 Teknik Informatika — Universitas Suryakancana
                 </span>
               </div>
 
-              <!-- IPK baru -->
               <div class="career-form-row">
                 <span class="career-form-icon">
                   <i class="fa-solid fa-award"></i>
                 </span>
 
-                <span class="career-form-label">IPK</span>
+                <span class="career-form-label" data-id="IPK" data-en="GPA">
+                  IPK
+                </span>
 
                 <span class="career-form-value gpa-value">
                   3.50 / 4.00
@@ -2527,9 +2769,19 @@
                   <i class="fa-solid fa-code"></i>
                 </span>
 
-                <span class="career-form-label">Bidang Minat</span>
+                <span
+                  class="career-form-label"
+                  data-id="Bidang Minat"
+                  data-en="Fields of Interest"
+                >
+                  Bidang Minat
+                </span>
 
-                <span class="career-form-value">
+                <span
+                  class="career-form-value"
+                  data-id="Web Development, Sistem Informasi, Data & Database"
+                  data-en="Web Development, Information Systems, Data & Database"
+                >
                   Web Development, Sistem Informasi, Data & Database
                 </span>
               </div>
@@ -2539,9 +2791,19 @@
                   <i class="fa-solid fa-calculator"></i>
                 </span>
 
-                <span class="career-form-label">Kompetensi Tambahan</span>
+                <span
+                  class="career-form-label"
+                  data-id="Kompetensi Tambahan"
+                  data-en="Additional Competencies"
+                >
+                  Kompetensi Tambahan
+                </span>
 
-                <span class="career-form-value">
+                <span
+                  class="career-form-value"
+                  data-id="Akuntansi dan Keuangan Lembaga"
+                  data-en="Accounting and Institutional Finance"
+                >
                   Akuntansi dan Keuangan Lembaga
                 </span>
               </div>
@@ -2551,9 +2813,19 @@
                   <i class="fa-solid fa-location-dot"></i>
                 </span>
 
-                <span class="career-form-label">Domisili</span>
+                <span
+                  class="career-form-label"
+                  data-id="Domisili"
+                  data-en="Location"
+                >
+                  Domisili
+                </span>
 
-                <span class="career-form-value">
+                <span
+                  class="career-form-value"
+                  data-id="Cianjur, Jawa Barat, Indonesia"
+                  data-en="Cianjur, West Java, Indonesia"
+                >
                   Cianjur, Jawa Barat, Indonesia
                 </span>
               </div>
@@ -2573,11 +2845,25 @@
       <div class="container reveal">
         <div class="section-head">
           <div>
-            <p class="section-label">Kompetensi</p>
-            <h2 class="section-title">Keahlian yang Relevan</h2>
+            <p class="section-label" data-id="Kompetensi" data-en="Competencies">
+              Kompetensi
+            </p>
+
+            <h2
+              class="section-title"
+              data-id="Keahlian yang Relevan"
+              data-en="Relevant Skills"
+            >
+              Keahlian yang Relevan
+            </h2>
           </div>
 
-          <a class="section-link" href="#projects">
+          <a
+            class="section-link"
+            href="#projects"
+            data-id="Lihat Bukti Proyek →"
+            data-en="View Project Evidence →"
+          >
             Lihat Bukti Proyek →
           </a>
         </div>
@@ -2591,7 +2877,13 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Skill / 01</h3>
-                <p class="paper-header-subtitle">Kompetensi teknis</p>
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Kompetensi teknis"
+                  data-en="Technical competencies"
+                >
+                  Kompetensi teknis
+                </p>
               </div>
 
               <span class="paper-ref">WEB</span>
@@ -2600,13 +2892,22 @@
             <div class="paper-body">
               <h3>Web Development</h3>
 
-              <p>
+              <p
+                data-id="Membangun antarmuka website responsif, terstruktur, dan sesuai dengan kebutuhan pengguna."
+                data-en="Building responsive, structured website interfaces that meet user needs."
+              >
                 Membangun antarmuka website responsif, terstruktur, dan sesuai
                 dengan kebutuhan pengguna.
               </p>
 
               <div class="competency-meta">
-                <span class="competency-meta-label">Tools / Teknologi</span>
+                <span
+                  class="competency-meta-label"
+                  data-id="Tools / Teknologi"
+                  data-en="Tools / Technologies"
+                >
+                  Tools / Teknologi
+                </span>
 
                 <ul class="tech-list">
                   <li><i class="fa-brands fa-html5"></i> HTML</li>
@@ -2630,7 +2931,13 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Skill / 02</h3>
-                <p class="paper-header-subtitle">Kompetensi teknis</p>
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Kompetensi teknis"
+                  data-en="Technical competencies"
+                >
+                  Kompetensi teknis
+                </p>
               </div>
 
               <span class="paper-ref">BACKEND</span>
@@ -2639,13 +2946,22 @@
             <div class="paper-body">
               <h3>Backend & Database</h3>
 
-              <p>
+              <p
+                data-id="Mengembangkan logika aplikasi, pengelolaan data, autentikasi, dan fitur yang terhubung dengan database."
+                data-en="Developing application logic, data management, authentication, and features connected to databases."
+              >
                 Mengembangkan logika aplikasi, pengelolaan data, autentikasi,
                 dan fitur yang terhubung dengan database.
               </p>
 
               <div class="competency-meta">
-                <span class="competency-meta-label">Tools / Teknologi</span>
+                <span
+                  class="competency-meta-label"
+                  data-id="Tools / Teknologi"
+                  data-en="Tools / Technologies"
+                >
+                  Tools / Teknologi
+                </span>
 
                 <ul class="tech-list">
                   <li><i class="fa-brands fa-php"></i> PHP</li>
@@ -2669,7 +2985,13 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Skill / 03</h3>
-                <p class="paper-header-subtitle">Kompetensi teknis</p>
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Kompetensi teknis"
+                  data-en="Technical competencies"
+                >
+                  Kompetensi teknis
+                </p>
               </div>
 
               <span class="paper-ref">DATA</span>
@@ -2678,13 +3000,22 @@
             <div class="paper-body">
               <h3>Data & Analytics</h3>
 
-              <p>
+              <p
+                data-id="Mengolah, mengintegrasikan, dan menganalisis data untuk menghasilkan informasi pendukung keputusan."
+                data-en="Processing, integrating, and analyzing data to produce decision-support information."
+              >
                 Mengolah, mengintegrasikan, dan menganalisis data untuk
                 menghasilkan informasi pendukung keputusan.
               </p>
 
               <div class="competency-meta">
-                <span class="competency-meta-label">Tools / Teknologi</span>
+                <span
+                  class="competency-meta-label"
+                  data-id="Tools / Teknologi"
+                  data-en="Tools / Technologies"
+                >
+                  Tools / Teknologi
+                </span>
 
                 <ul class="tech-list">
                   <li><i class="fa-solid fa-database"></i> SQL</li>
@@ -2708,7 +3039,13 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Skill / 04</h3>
-                <p class="paper-header-subtitle">Kompetensi teknis</p>
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Kompetensi teknis"
+                  data-en="Technical competencies"
+                >
+                  Kompetensi teknis
+                </p>
               </div>
 
               <span class="paper-ref">SYSTEM</span>
@@ -2717,13 +3054,22 @@
             <div class="paper-body">
               <h3>System Analysis</h3>
 
-              <p>
+              <p
+                data-id="Menganalisis kebutuhan pengguna, merancang proses sistem, database, dan struktur aplikasi."
+                data-en="Analyzing user requirements, designing system processes, databases, and application structures."
+              >
                 Menganalisis kebutuhan pengguna, merancang proses sistem,
                 database, dan struktur aplikasi.
               </p>
 
               <div class="competency-meta">
-                <span class="competency-meta-label">Tools / Teknologi</span>
+                <span
+                  class="competency-meta-label"
+                  data-id="Tools / Teknologi"
+                  data-en="Tools / Technologies"
+                >
+                  Tools / Teknologi
+                </span>
 
                 <ul class="tech-list">
                   <li><i class="fa-solid fa-diagram-project"></i> UML</li>
@@ -2747,27 +3093,56 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Skill / 05</h3>
-                <p class="paper-header-subtitle">Kompetensi pendukung</p>
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Kompetensi pendukung"
+                  data-en="Supporting competencies"
+                >
+                  Kompetensi pendukung
+                </p>
               </div>
 
               <span class="paper-ref">FINANCE</span>
             </div>
 
             <div class="paper-body">
-              <h3>Akuntansi & Keuangan</h3>
+              <h3
+                data-id="Akuntansi & Keuangan"
+                data-en="Accounting & Finance"
+              >
+                Akuntansi & Keuangan
+              </h3>
 
-              <p>
+              <p
+                data-id="Memahami dasar akuntansi, administrasi keuangan, pencatatan transaksi, dan penyusunan pelaporan keuangan."
+                data-en="Understanding accounting basics, financial administration, transaction recording, and financial reporting preparation."
+              >
                 Memahami dasar akuntansi, administrasi keuangan, pencatatan
                 transaksi, dan penyusunan pelaporan keuangan.
               </p>
 
               <div class="competency-meta">
-                <span class="competency-meta-label">Area Kompetensi</span>
+                <span
+                  class="competency-meta-label"
+                  data-id="Area Kompetensi"
+                  data-en="Competency Areas"
+                >
+                  Area Kompetensi
+                </span>
 
                 <ul class="tech-list">
-                  <li><i class="fa-solid fa-receipt"></i> Transaksi</li>
-                  <li><i class="fa-solid fa-file-invoice-dollar"></i> Laporan</li>
-                  <li><i class="fa-solid fa-building-columns"></i> Admin</li>
+                  <li>
+                    <i class="fa-solid fa-receipt"></i>
+                    <span data-id="Transaksi" data-en="Transactions">Transaksi</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span data-id="Laporan" data-en="Reports">Laporan</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span data-id="Admin" data-en="Administration">Admin</span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -2786,11 +3161,29 @@
       <div class="container reveal">
         <div class="section-head">
           <div>
-            <p class="section-label">Portofolio Proyek</p>
-            <h2 class="section-title">Proyek yang Relevan</h2>
+            <p
+              class="section-label"
+              data-id="Portofolio Proyek"
+              data-en="Project Portfolio"
+            >
+              Portofolio Proyek
+            </p>
+
+            <h2
+              class="section-title"
+              data-id="Proyek yang Relevan"
+              data-en="Relevant Projects"
+            >
+              Proyek yang Relevan
+            </h2>
           </div>
 
-          <a class="section-link" href="#contact">
+          <a
+            class="section-link"
+            href="#contact"
+            data-id="Mari Diskusikan Proyek →"
+            data-en="Let's Discuss Projects →"
+          >
             Mari Diskusikan Proyek →
           </a>
         </div>
@@ -2804,7 +3197,11 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Project File / 01</h3>
-                <p class="paper-header-subtitle">
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Aplikasi web dan sistem informasi"
+                  data-en="Web applications and information systems"
+                >
                   Aplikasi web dan sistem informasi
                 </p>
               </div>
@@ -2827,13 +3224,25 @@
             <div class="paper-body project-content">
               <span class="project-number">01 — KASDIG</span>
 
-              <h3>Sistem Bank Mini Sekolah</h3>
+              <h3
+                data-id="Sistem Bank Mini Sekolah"
+                data-en="School Mini Bank System"
+              >
+                Sistem Bank Mini Sekolah
+              </h3>
 
-              <p class="project-category">
+              <p
+                class="project-category"
+                data-id="Sistem Pengelolaan Tabungan Siswa Berbasis Digital"
+                data-en="Digital Student Savings Management System"
+              >
                 Sistem Pengelolaan Tabungan Siswa Berbasis Digital
               </p>
 
-              <p>
+              <p
+                data-id="Aplikasi web untuk mendukung pengelolaan Bank Mini Sekolah secara digital, termasuk data siswa, tabungan, transaksi setoran dan penarikan, saldo, riwayat transaksi, dashboard, serta autentikasi pengguna."
+                data-en="Web application for digital management of a School Mini Bank, including student data, savings, deposits and withdrawals, balances, transaction history, dashboard, and user authentication."
+              >
                 Aplikasi web untuk mendukung pengelolaan Bank Mini Sekolah
                 secara digital, termasuk data siswa, tabungan, transaksi
                 setoran dan penarikan, saldo, riwayat transaksi, dashboard,
@@ -2842,16 +3251,22 @@
 
               <div class="project-info-grid">
                 <div class="project-info-box">
-                  <strong>Peran Saya</strong>
-                  <span>
+                  <strong data-id="Peran Saya" data-en="My Role">Peran Saya</strong>
+                  <span
+                    data-id="Pengembang sistem: perancangan database, fitur, antarmuka, dan integrasi sistem."
+                    data-en="System developer: database design, feature development, user interface, and system integration."
+                  >
                     Pengembang sistem: perancangan database, fitur, antarmuka,
                     dan integrasi sistem.
                   </span>
                 </div>
 
                 <div class="project-info-box">
-                  <strong>Fitur Utama</strong>
-                  <span>
+                  <strong data-id="Fitur Utama" data-en="Main Features">Fitur Utama</strong>
+                  <span
+                    data-id="Data siswa, transaksi, saldo, dashboard, autentikasi, dan laporan."
+                    data-en="Student data, transactions, balances, dashboard, authentication, and reports."
+                  >
                     Data siswa, transaksi, saldo, dashboard, autentikasi, dan
                     laporan.
                   </span>
@@ -2874,12 +3289,19 @@
                   rel="noopener"
                 >
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  Lihat Live Demo
+                  <span data-id="Lihat Live Demo" data-en="View Live Demo">
+                    Lihat Live Demo
+                  </span>
                 </a>
 
                 <a class="project-link" href="#contact">
                   <i class="fa-solid fa-envelope"></i>
-                  Tanya Detail Proyek
+                  <span
+                    data-id="Tanya Detail Proyek"
+                    data-en="Ask Project Details"
+                  >
+                    Tanya Detail Proyek
+                  </span>
                 </a>
               </div>
             </div>
@@ -2898,7 +3320,11 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Project File / 02</h3>
-                <p class="paper-header-subtitle">
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Data warehouse dan analisis data"
+                  data-en="Data warehouse and data analysis"
+                >
                   Data warehouse dan analisis data
                 </p>
               </div>
@@ -2921,13 +3347,25 @@
             <div class="paper-body project-content">
               <span class="project-number">02 — DATA WAREHOUSE</span>
 
-              <h3>Data Warehouse MBG Cianjur</h3>
+              <h3
+                data-id="Data Warehouse MBG Cianjur"
+                data-en="MBG Cianjur Data Warehouse"
+              >
+                Data Warehouse MBG Cianjur
+              </h3>
 
-              <p class="project-category">
+              <p
+                class="project-category"
+                data-id="Analisis Persebaran Dapur MBG dan Rekomendasi Prioritas SPPG"
+                data-en="MBG Kitchen Distribution Analysis and SPPG Priority Recommendations"
+              >
                 Analisis Persebaran Dapur MBG dan Rekomendasi Prioritas SPPG
               </p>
 
-              <p>
+              <p
+                data-id="Implementasi Data Warehouse untuk mengintegrasikan, mengolah, dan menganalisis data persebaran dapur Makan Bergizi Gratis (MBG) di Kabupaten Cianjur sebagai dasar rekomendasi prioritas pembangunan SPPG."
+                data-en="Data Warehouse implementation to integrate, process, and analyze Free Nutritious Meal (MBG) kitchen distribution data in Cianjur Regency as the basis for SPPG development priority recommendations."
+              >
                 Implementasi Data Warehouse untuk mengintegrasikan, mengolah,
                 dan menganalisis data persebaran dapur Makan Bergizi Gratis
                 (MBG) di Kabupaten Cianjur sebagai dasar rekomendasi prioritas
@@ -2936,16 +3374,22 @@
 
               <div class="project-info-grid">
                 <div class="project-info-box">
-                  <strong>Peran Saya</strong>
-                  <span>
+                  <strong data-id="Peran Saya" data-en="My Role">Peran Saya</strong>
+                  <span
+                    data-id="Data Analyst / Data Engineer pada proses integrasi, transformasi, analisis, dan visualisasi data."
+                    data-en="Data Analyst / Data Engineer for data integration, transformation, analysis, and visualization."
+                  >
                     Data Analyst / Data Engineer pada proses integrasi,
                     transformasi, analisis, dan visualisasi data.
                   </span>
                 </div>
 
                 <div class="project-info-box">
-                  <strong>Alur Proses</strong>
-                  <span>
+                  <strong data-id="Alur Proses" data-en="Process Flow">Alur Proses</strong>
+                  <span
+                    data-id="Data Source, ETL, Data Warehouse, Analisis, Visualisasi, dan Rekomendasi."
+                    data-en="Data Source, ETL, Data Warehouse, Analysis, Visualization, and Recommendations."
+                  >
                     Data Source, ETL, Data Warehouse, Analisis, Visualisasi,
                     dan Rekomendasi.
                   </span>
@@ -2964,12 +3408,19 @@
               <div class="project-actions">
                 <a class="project-link" href="#education">
                   <i class="fa-solid fa-graduation-cap"></i>
-                  Proyek Skripsi
+                  <span data-id="Proyek Skripsi" data-en="Thesis Project">
+                    Proyek Skripsi
+                  </span>
                 </a>
 
                 <a class="project-link" href="#contact">
                   <i class="fa-solid fa-envelope"></i>
-                  Tanya Detail Proyek
+                  <span
+                    data-id="Tanya Detail Proyek"
+                    data-en="Ask Project Details"
+                  >
+                    Tanya Detail Proyek
+                  </span>
                 </a>
               </div>
             </div>
@@ -2988,8 +3439,21 @@
       <div class="container reveal">
         <div class="section-head">
           <div>
-            <p class="section-label">Latar Belakang</p>
-            <h2 class="section-title">Pendidikan & Sertifikasi</h2>
+            <p
+              class="section-label"
+              data-id="Latar Belakang"
+              data-en="Background"
+            >
+              Latar Belakang
+            </p>
+
+            <h2
+              class="section-title"
+              data-id="Pendidikan & Sertifikasi"
+              data-en="Education & Certifications"
+            >
+              Pendidikan & Sertifikasi
+            </h2>
           </div>
         </div>
 
@@ -3003,7 +3467,11 @@
 
                 <div class="paper-header-content">
                   <h3 class="paper-header-title">Education Record / 01</h3>
-                  <p class="paper-header-subtitle">
+                  <p
+                    class="paper-header-subtitle"
+                    data-id="Riwayat pendidikan formal"
+                    data-en="Formal education history"
+                  >
                     Riwayat pendidikan formal
                   </p>
                 </div>
@@ -3017,10 +3485,19 @@
                 </div>
 
                 <div>
-                  <h3>Teknik Informatika</h3>
+                  <h3
+                    data-id="Teknik Informatika"
+                    data-en="Informatics Engineering"
+                  >
+                    Teknik Informatika
+                  </h3>
+
                   <p class="education-major">Universitas Suryakancana</p>
 
-                  <p>
+                  <p
+                    data-id="Menempuh pendidikan di bidang pemrograman, web development, database, analisis sistem, rekayasa perangkat lunak, pengolahan data, dan Data Warehouse."
+                    data-en="Studied programming, web development, databases, system analysis, software engineering, data processing, and Data Warehouse."
+                  >
                     Menempuh pendidikan di bidang pemrograman, web development,
                     database, analisis sistem, rekayasa perangkat lunak,
                     pengolahan data, dan Data Warehouse.
@@ -3042,7 +3519,11 @@
 
                 <div class="paper-header-content">
                   <h3 class="paper-header-title">Education Record / 02</h3>
-                  <p class="paper-header-subtitle">
+                  <p
+                    class="paper-header-subtitle"
+                    data-id="Riwayat pendidikan formal"
+                    data-en="Formal education history"
+                  >
                     Riwayat pendidikan formal
                   </p>
                 </div>
@@ -3056,10 +3537,19 @@
                 </div>
 
                 <div>
-                  <h3>Akuntansi dan Keuangan Lembaga</h3>
+                  <h3
+                    data-id="Akuntansi dan Keuangan Lembaga"
+                    data-en="Accounting and Institutional Finance"
+                  >
+                    Akuntansi dan Keuangan Lembaga
+                  </h3>
+
                   <p class="education-major">SMK Plus Ashabulyamin</p>
 
-                  <p>
+                  <p
+                    data-id="Mempelajari akuntansi, administrasi keuangan, pencatatan transaksi, pelaporan keuangan, serta proses bisnis dasar."
+                    data-en="Studied accounting, financial administration, transaction recording, financial reporting, and basic business processes."
+                  >
                     Mempelajari akuntansi, administrasi keuangan, pencatatan
                     transaksi, pelaporan keuangan, serta proses bisnis dasar.
                   </p>
@@ -3081,7 +3571,11 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Certificate Archive</h3>
-                <p class="paper-header-subtitle">
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Sertifikasi dan pembelajaran"
+                  data-en="Certifications and learning"
+                >
                   Sertifikasi dan pembelajaran
                 </p>
               </div>
@@ -3096,7 +3590,12 @@
 
                   <div>
                     <strong>Ikatan Akuntan Indonesia</strong>
-                    <span>Kompetensi bidang akuntansi dan keuangan.</span>
+                    <span
+                      data-id="Kompetensi bidang akuntansi dan keuangan."
+                      data-en="Competencies in accounting and finance."
+                    >
+                      Kompetensi bidang akuntansi dan keuangan.
+                    </span>
 
                     <a
                       class="certificate-link"
@@ -3105,7 +3604,9 @@
                       rel="noopener"
                     >
                       <i class="fa-solid fa-eye"></i>
-                      Lihat Sertifikat
+                      <span data-id="Lihat Sertifikat" data-en="View Certificate">
+                        Lihat Sertifikat
+                      </span>
                     </a>
                   </div>
                 </li>
@@ -3115,7 +3616,10 @@
 
                   <div>
                     <strong>MATLAB Coder Onramp — MathWorks</strong>
-                    <span>
+                    <span
+                      data-id="Pembelajaran penggunaan MATLAB Coder dan proses generasi kode dari algoritma."
+                      data-en="Learning MATLAB Coder usage and code generation processes from algorithms."
+                    >
                       Pembelajaran penggunaan MATLAB Coder dan proses generasi
                       kode dari algoritma.
                     </span>
@@ -3127,7 +3631,9 @@
                       rel="noopener"
                     >
                       <i class="fa-solid fa-eye"></i>
-                      Lihat Sertifikat
+                      <span data-id="Lihat Sertifikat" data-en="View Certificate">
+                        Lihat Sertifikat
+                      </span>
                     </a>
                   </div>
                 </li>
@@ -3137,7 +3643,10 @@
 
                   <div>
                     <strong>Machine Learning Onramp — MathWorks</strong>
-                    <span>
+                    <span
+                      data-id="Dasar konsep, alur kerja, dan penerapan machine learning menggunakan MATLAB."
+                      data-en="Basic concepts, workflows, and machine learning implementation using MATLAB."
+                    >
                       Dasar konsep, alur kerja, dan penerapan machine learning
                       menggunakan MATLAB.
                     </span>
@@ -3149,7 +3658,9 @@
                       rel="noopener"
                     >
                       <i class="fa-solid fa-eye"></i>
-                      Lihat Sertifikat
+                      <span data-id="Lihat Sertifikat" data-en="View Certificate">
+                        Lihat Sertifikat
+                      </span>
                     </a>
                   </div>
                 </li>
@@ -3170,10 +3681,25 @@
       <div class="container reveal">
         <div class="contact-grid">
           <div class="contact-heading">
-            <p class="section-label">Hubungi Saya</p>
-            <h2>Siap Berkontribusi dan Berkembang</h2>
+            <p
+              class="section-label"
+              data-id="Hubungi Saya"
+              data-en="Contact Me"
+            >
+              Hubungi Saya
+            </p>
 
-            <p>
+            <h2
+              data-id="Siap Berkontribusi dan Berkembang"
+              data-en="Ready to Contribute and Grow"
+            >
+              Siap Berkontribusi dan Berkembang
+            </h2>
+
+            <p
+              data-id="Saya terbuka untuk peluang kerja, proyek, kolaborasi, serta kesempatan untuk berkembang dalam bidang teknologi informasi."
+              data-en="I am open to job opportunities, projects, collaborations, and opportunities to grow in information technology."
+            >
               Saya terbuka untuk peluang kerja, proyek, kolaborasi, serta
               kesempatan untuk berkembang dalam bidang teknologi informasi.
             </p>
@@ -3244,7 +3770,11 @@
 
               <div class="paper-header-content">
                 <h3 class="paper-header-title">Collaboration Form</h3>
-                <p class="paper-header-subtitle">
+                <p
+                  class="paper-header-subtitle"
+                  data-id="Peluang kerja, proyek, atau diskusi"
+                  data-en="Job opportunities, projects, or discussions"
+                >
                   Peluang kerja, proyek, atau diskusi
                 </p>
               </div>
@@ -3253,9 +3783,17 @@
             </div>
 
             <div class="paper-body">
-              <h3>Mari Berkolaborasi</h3>
+              <h3
+                data-id="Mari Berkolaborasi"
+                data-en="Let's Collaborate"
+              >
+                Mari Berkolaborasi
+              </h3>
 
-              <p>
+              <p
+                data-id="Saya siap berdiskusi mengenai peluang kerja, proyek, atau solusi digital yang dapat dikembangkan bersama."
+                data-en="I am ready to discuss job opportunities, projects, or digital solutions that can be developed together."
+              >
                 Saya siap berdiskusi mengenai peluang kerja, proyek, atau solusi
                 digital yang dapat dikembangkan bersama.
               </p>
@@ -3279,27 +3817,31 @@
             Muhamad Farid Indrawan
           </div>
 
-          <p class="footer-description">
+          <p
+            class="footer-description"
+            data-id="Fresh Graduate Teknik Informatika dengan minat pada pengembangan web, sistem informasi, database, analisis data, dan akuntansi."
+            data-en="Informatics Engineering graduate with interests in web development, information systems, databases, data analysis, and accounting."
+          >
             Fresh Graduate Teknik Informatika dengan minat pada pengembangan
             web, sistem informasi, database, analisis data, dan akuntansi.
           </p>
         </div>
 
         <div>
-          <h3>Navigasi</h3>
+          <h3 data-id="Navigasi" data-en="Navigation">Navigasi</h3>
 
           <ul class="footer-links">
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#skills">Kompetensi</a></li>
-            <li><a href="#about">Profil</a></li>
-            <li><a href="#projects">Proyek</a></li>
-            <li><a href="#education">Pendidikan</a></li>
-            <li><a href="#contact">Kontak</a></li>
+            <li><a href="#home" data-id="Beranda" data-en="Home">Beranda</a></li>
+            <li><a href="#skills" data-id="Kompetensi" data-en="Skills">Kompetensi</a></li>
+            <li><a href="#about" data-id="Profil" data-en="Profile">Profil</a></li>
+            <li><a href="#projects" data-id="Proyek" data-en="Projects">Proyek</a></li>
+            <li><a href="#education" data-id="Pendidikan" data-en="Education">Pendidikan</a></li>
+            <li><a href="#contact" data-id="Kontak" data-en="Contact">Kontak</a></li>
           </ul>
         </div>
 
         <div>
-          <h3>Hubungi Saya</h3>
+          <h3 data-id="Hubungi Saya" data-en="Contact Me">Hubungi Saya</h3>
 
           <div class="footer-socials">
             <a
@@ -3349,6 +3891,25 @@
     const themeToggle = document.querySelector("#themeToggle");
     const themeColorMeta = document.querySelector("#theme-color-meta");
 
+    const languageDropdown = document.querySelector("#languageDropdown");
+    const languageToggle = document.querySelector("#languageToggle");
+    const languageOptions = document.querySelectorAll(".language-option");
+    const currentFlag = document.querySelector("#currentFlag");
+    const currentLanguageName = document.querySelector("#currentLanguageName");
+
+    const languageData = {
+      id: {
+        name: "Indonesia",
+        flag: "https://flagcdn.com/w40/id.png",
+        alt: "Bendera Indonesia"
+      },
+      en: {
+        name: "English",
+        flag: "https://flagcdn.com/w40/us.png",
+        alt: "United States flag"
+      }
+    };
+
     function updateThemeButton() {
       const isDarkMode = document.body.classList.contains("dark-mode");
 
@@ -3385,8 +3946,57 @@
 
     themeToggle.addEventListener("click", () => {
       const isDarkMode = document.body.classList.contains("dark-mode");
-
       setTheme(isDarkMode ? "light" : "dark");
+    });
+
+    function setLanguage(language) {
+      const translatableElements = document.querySelectorAll(
+        "[data-id][data-en]"
+      );
+
+      translatableElements.forEach((element) => {
+        element.textContent = element.dataset[language];
+      });
+
+      currentFlag.src = languageData[language].flag;
+      currentFlag.alt = languageData[language].alt;
+      currentLanguageName.textContent = languageData[language].name;
+
+      languageOptions.forEach((option) => {
+        option.classList.toggle(
+          "active",
+          option.dataset.language === language
+        );
+      });
+
+      document.documentElement.lang = language;
+      localStorage.setItem("portfolio-language", language);
+    }
+
+    const savedLanguage = localStorage.getItem("portfolio-language") || "id";
+    setLanguage(savedLanguage);
+
+    languageToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      const isOpen = languageDropdown.classList.toggle("open");
+      languageToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    languageOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        setLanguage(option.dataset.language);
+
+        languageDropdown.classList.remove("open");
+        languageToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!languageDropdown.contains(event.target)) {
+        languageDropdown.classList.remove("open");
+        languageToggle.setAttribute("aria-expanded", "false");
+      }
     });
 
     window.addEventListener("scroll", () => {
